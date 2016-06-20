@@ -1,0 +1,269 @@
+ul {
+  padding: 0;
+  list-style: none;
+}
+.clearfix {
+  &:before, &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  };
+}
+
+a, input {
+  &, &:focus {
+    outline: none;
+  }
+}
+
+body {
+  // height: 2000px;
+}
+.travel-page {
+	.banner {
+    text-align: center;
+    padding: 150px 0 100px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .upload-wrapper {
+    display: inline-block;
+    text-align: left;
+  }
+  .input-upload {
+    position: relative;
+    float: left;
+    input {
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      position: absolute;
+      left: 0;
+      top: 0;
+      cursor: pointer;
+      z-index: 5;
+      opacity: 0;
+    }
+    i {
+      display: block;
+      font-size: 50px;
+    }
+  }
+  .upload-txt {
+    float: left;
+    margin-left: 20px;
+    span {
+      display: block;
+      line-height: 32px;
+      &:first-child {
+        font-size: 30px;
+      }
+    }
+  }
+  .travel-title {
+    margin-top: 20px;
+    position: relative;
+    line-height: 38px;
+    input {
+      width: 100%;
+      padding: 10px 115px 10px 15px;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 2px rgba(110,98,85,.5);
+      border-radius: 4px;
+      transition: all ease .3s;
+      & + span {
+        display: none;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        color: #999;
+        i {
+          color: #ffc65a;
+        }
+      }
+      &:focus {
+        border-color: #ffc65a;
+        box-shadow: 0 0 3px #ffc65a;
+        & + span {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .edit-tools {
+    .clearfix;
+    margin-top: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    i {
+      font-size: 20px;
+    }
+    &.open {
+      .tools-status {
+        i {
+          transform: rotate(45deg);
+        }
+      }
+      .tools-panel {
+        transform: translateX(0);
+        opacity: 1; 
+      }
+    }
+  }
+  .tools-status, .tools-panel {
+    float: left;
+  }
+  .tools-status {
+    position: relative;
+    z-index: 10;
+    background-color: #fff;
+    i {
+      position: relative;
+      z-index: 10;
+      transition: transform ease .3s;
+      cursor: pointer;
+    }
+  }
+  .tools-panel {
+    margin-left: 20px;
+    position: relative;
+    z-index: 5;
+    transform: translateX(-100%);
+    transition: all ease .5s;
+    opacity: 0;
+  }
+}
+
+.customize-checkbox {
+  input {
+    display: none;
+    &:checked + span {
+      color: red;
+    }
+  }
+}
+
+
+
+
+.sitelogo.css.avatar-view {
+  display: block;
+  width: 220px;
+  height: 220px;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,.15);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.avatar-view img {
+  // width: 100%;
+}
+
+.avatar-body {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.avatar-upload {
+  overflow: hidden;
+}
+
+.avatar-upload label {
+  display: block;
+  float: left;
+  clear: left;
+  width: 100px;
+}
+
+.avatar-upload input {
+  display: block;
+  margin-left: 110px;
+}
+
+.avater-alert {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.avatar-wrapper {
+  height: 364px;
+  width: 100%;
+  margin-top: 15px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,.25);
+  background-color: #fcfcfc;
+  overflow: hidden;
+}
+
+.avatar-wrapper img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.img-preview {
+  float: left;
+  margin-top: 15px;
+  margin-right: 15px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.img-preview:hover {
+  border-color: #ccf;
+  box-shadow: 0 0 5px rgba(0,0,0,.15);
+}
+
+.img-preview img {
+  width: 100%;
+}
+
+.preview-lg {
+  height: 184px;
+  width: 184px;
+  margin-top: 15px;
+}
+
+.preview-md {
+  height: 100px;
+  width: 100px;
+}
+
+.preview-sm {
+  height: 50px;
+  width: 50px;
+}
+
+@media (min-width: 992px) {
+  .img-preview {
+    float: none;
+  }
+}
+
+.img-editor-btns {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.img-editor-btns .btn-group {
+  margin-right: 5px;
+}
+
+.loading {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: .75;
+  filter: alpha(opacity=75);
+  z-index: 20140628;
+}

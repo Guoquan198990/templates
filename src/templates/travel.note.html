@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EditorDemo</title>
+  <!-- build:css /styles/base.css -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/upload/jquery.fileupload.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/upload/jquery.fileupload-ui.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/upload/cropper.min.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/gridly/jquery.gridly.css" />
+  <link href="../public/components/air-datepicker/dist/css/datepicker.min.css" rel="stylesheet" />
+  <link href="../public/components/select2/dist/css/select2.min.css" rel="stylesheet" />
+  <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+  <link rel="stylesheet" type="text/css" href="../styles/css/base.css" />
+  <!-- endbuild -->
+</head>
+<body>
+<div class="wrapper">
+  <div class="clearfix header-box">
+    <div class="bread-nav">
+      <a href="#">游记</a>
+      &gt;
+      <span>发表游记</span>
+    </div>
+    <div class="note-options">
+      最新草稿保存于<span>2016-5-09 17:29:29</span> 
+      <a href="#" class="a-btn">发表游记</a> 
+    </div>
+  </div>
+  <form>
+    <div class="cover-container">
+      <div class="input-upload">
+        <a href="#" class="customize-upload">
+          <span>设置封面</span>
+          <input id="fileupload" type="file" name="files[]" />
+        </a>
+      </div>
+    </div>
+    <div class="clearfix">
+      <div class="edit-wrapper comps-form">
+        <div class="edit-note-form">
+          <div class="form-group title-note">
+            <div class="title-panel clearfix">
+              <div class="editor-panel">
+                <input type="text" class="form-control comps-title note-title" value="枫影婆娑-加拿大秋季记事" maxlength="18" />
+                <span class="total-words"><i>0</i>/18</span>
+                <div class="mask-panel">
+                  <div class="show-data">
+                    <span>
+                      枫影婆娑-加拿大秋季记事
+                      <a href="#" class="glyphicon glyphicon-pencil edit-btn" data-target=".note-title"></a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group edit-add-tags clearfix">
+            <div class="tags-box">
+              <span>免签</span><span>摄影</span>
+            </div>
+            <div class="add-tags">
+              <a href="javascript:;" class="btn-add-tags" data-value="免签,摄影">添加标签</a>
+            </div>
+          </div>
+          <div class="clearfix form-inline base-info">
+            <div class="form-group">
+              <label>出行时间：</label>
+              <span class="datepicker-panel">
+                <b>2016-06-12</b>
+                <input type="text" class="form-control datepicker-options" data-language='zh' />
+                <i class="glyphicon glyphicon-menu-down"></i>
+              </span>
+            </div>
+            <div class="form-group">
+              <label>出发地：</label>
+              <div class="editor-panel">
+                <input type="text" class="form-control address-input" id="address" value="中航广场" />
+                <div class="mask-panel">
+                  <div class="show-data">
+                    <span class="address-span">中航广场<a href="#" class="glyphicon glyphicon-pencil edit-btn" data-target=".address-input"></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>人均费用：</label>
+              <div class="editor-panel travel-cost-box">
+                <b>500以下</b>
+                <select class="form-control travel-cost">
+                  <option>500以下</option>
+                  <option>500—999</option>
+                  <option>1000—2999</option>
+                  <option>3000—4999</option>
+                  <option>5000—9999</option>
+                  <option>10000—19999</option>
+                  <option>2万—5万</option>
+                  <option>5万以上</option>
+                </select>
+                <i class="glyphicon glyphicon-menu-down"></i>
+              </div>
+            </div>
+          </div>
+          <div class="form-group timeline-note">
+            <ul>
+              <li class="day1">
+                <span class="day-num">DAY1</span>
+                <div class="write-tools">
+                  <a href="#" data-role="title" data-day=".day1">
+                    <i></i>
+                    <span>添加段落标题</span>
+                  </a>
+                  <a href="#" data-role="text" data-day=".day1">
+                    <i></i>
+                    <span>添加文字</span>
+                  </a>
+                  <a href="#" data-role="image" data-day=".day1">
+                    <i></i>
+                    <span>添加图片</span>
+                  </a>
+                </div> 
+                <dl>
+                  <dt>
+                    <div class="paragraph-title">
+                      <div class="form-group title-note">
+                        <div class="title-panel clearfix">
+                          <div class="editor-panel">
+                            <input type="text" class="form-control comps-title item-title1" value="生活不止有诗与远方，还有牛首山和鸭血粉丝" maxlength="20" />
+                            <span class="total-words"><i>0</i>/20</span>
+                            <div class="mask-panel">
+                              <div class="show-data">
+                                <span class="paragraph-title">生活不止有诗与远方，还有牛首山和鸭血粉丝
+                                  <a href="#" class="glyphicon glyphicon-pencil edit-btn" data-target=".item-title1"></a>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group edit-add-tags clearfix">
+                        <div class="tags-box"></div>
+                        <div class="add-tags">
+                          <a href="javascript:;" class="btn-add-tags" data-value="">添加标签</a>
+                        </div>
+                      </div>
+                    </div>
+                  </dt>
+                  <dd>
+                    <div class="paragraph clearfix">
+                      <div class="form-group editor-panel paragraph-inner">
+                        <textarea class="form-control paragraph-con" rows="5" placeholder="请添加游记文字">生活不止有诗与远方，还有牛首山和鸭血粉丝汤</textarea>
+                        <div class="mask-panel">
+                          <div class="show-data">
+                            <span class="paragraph-main">
+                              生活不止有诗与远方，还有牛首山和鸭血粉丝汤
+                              <a href="#" class="glyphicon glyphicon-pencil edit-btn" data-target=".paragraph-con"></a>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="btn-groups clearfix">
+                          <div class="qq-face">
+                            <a href="#" class="face-icon">
+                            </a>
+                            <div id="popFace" class="pop pop01 pop-bottom fn-hide">
+                              <div class="pop-content">
+                                <div class="pop-content-info pop_expre js_face">
+                                  <ul>
+                                    <li><a href="javascript:void(0);" title="微笑"><img src="http://x.autoimg.cn/club/Post/img/smiles/1.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="撇嘴"><img src="http://x.autoimg.cn/club/Post/img/smiles/2.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="色"><img src="http://x.autoimg.cn/club/Post/img/smiles/3.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="发呆"><img src="http://x.autoimg.cn/club/Post/img/smiles/4.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="得意"><img src="http://x.autoimg.cn/club/Post/img/smiles/5.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="流泪"><img src="http://x.autoimg.cn/club/Post/img/smiles/6.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="害羞"><img src="http://x.autoimg.cn/club/Post/img/smiles/7.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="闭嘴"><img src="http://x.autoimg.cn/club/Post/img/smiles/8.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="睡"><img src="http://x.autoimg.cn/club/Post/img/smiles/9.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="大哭"><img src="http://x.autoimg.cn/club/Post/img/smiles/10.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="尴尬"><img src="http://x.autoimg.cn/club/Post/img/smiles/11.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="发怒"><img src="http://x.autoimg.cn/club/Post/img/smiles/12.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="调皮"><img src="http://x.autoimg.cn/club/Post/img/smiles/13.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="嘻嘻"><img src="http://x.autoimg.cn/club/Post/img/smiles/14.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="惊讶"><img src="http://x.autoimg.cn/club/Post/img/smiles/15.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="难过"><img src="http://x.autoimg.cn/club/Post/img/smiles/16.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="酷"><img src="http://x.autoimg.cn/club/Post/img/smiles/17.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="冷汗"><img src="http://x.autoimg.cn/club/Post/img/smiles/18.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="抓狂"><img src="http://x.autoimg.cn/club/Post/img/smiles/19.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="吐"><img src="http://x.autoimg.cn/club/Post/img/smiles/20.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="偷笑"><img src="http://x.autoimg.cn/club/Post/img/smiles/21.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="可爱"><img src="http://x.autoimg.cn/club/Post/img/smiles/22.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="白眼"><img src="http://x.autoimg.cn/club/Post/img/smiles/23.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="傲慢"><img src="http://x.autoimg.cn/club/Post/img/smiles/24.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="饥饿"><img src="http://x.autoimg.cn/club/Post/img/smiles/25.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="困"><img src="http://x.autoimg.cn/club/Post/img/smiles/26.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="惊恐"><img src="http://x.autoimg.cn/club/Post/img/smiles/27.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="汗"><img src="http://x.autoimg.cn/club/Post/img/smiles/28.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="憨笑"><img src="http://x.autoimg.cn/club/Post/img/smiles/29.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="大兵"><img src="http://x.autoimg.cn/club/Post/img/smiles/30.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="奋斗"><img src="http://x.autoimg.cn/club/Post/img/smiles/31.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="咒骂"><img src="http://x.autoimg.cn/club/Post/img/smiles/32.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="疑问"><img src="http://x.autoimg.cn/club/Post/img/smiles/33.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="嘘"><img src="http://x.autoimg.cn/club/Post/img/smiles/34.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="晕"><img src="http://x.autoimg.cn/club/Post/img/smiles/35.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="折磨"><img src="http://x.autoimg.cn/club/Post/img/smiles/36.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="衰"><img src="http://x.autoimg.cn/club/Post/img/smiles/37.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="骷髅"><img src="http://x.autoimg.cn/club/Post/img/smiles/38.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="敲打"><img src="http://x.autoimg.cn/club/Post/img/smiles/39.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="再见"><img src="http://x.autoimg.cn/club/Post/img/smiles/40.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="擦汗"><img src="http://x.autoimg.cn/club/Post/img/smiles/41.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="挖鼻"><img src="http://x.autoimg.cn/club/Post/img/smiles/42.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="鼓掌"><img src="http://x.autoimg.cn/club/Post/img/smiles/43.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="糗大了"><img src="http://x.autoimg.cn/club/Post/img/smiles/44.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="坏笑"><img src="http://x.autoimg.cn/club/Post/img/smiles/45.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="左哼哼"><img src="http://x.autoimg.cn/club/Post/img/smiles/46.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="右哼哼"><img src="http://x.autoimg.cn/club/Post/img/smiles/47.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="哈欠"><img src="http://x.autoimg.cn/club/Post/img/smiles/48.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="鄙视"><img src="http://x.autoimg.cn/club/Post/img/smiles/49.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="委屈"><img src="http://x.autoimg.cn/club/Post/img/smiles/50.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="快哭了"><img src="http://x.autoimg.cn/club/Post/img/smiles/51.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="阴险"><img src="http://x.autoimg.cn/club/Post/img/smiles/52.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="亲亲"><img src="http://x.autoimg.cn/club/Post/img/smiles/53.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="吓"><img src="http://x.autoimg.cn/club/Post/img/smiles/54.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="可怜"><img src="http://x.autoimg.cn/club/Post/img/smiles/55.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="菜刀"><img src="http://x.autoimg.cn/club/Post/img/smiles/56.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="西瓜"><img src="http://x.autoimg.cn/club/Post/img/smiles/57.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="啤酒"><img src="http://x.autoimg.cn/club/Post/img/smiles/58.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="篮球"><img src="http://x.autoimg.cn/club/Post/img/smiles/59.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="乒乓"><img src="http://x.autoimg.cn/club/Post/img/smiles/60.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="咖啡"><img src="http://x.autoimg.cn/club/Post/img/smiles/61.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="饭"><img src="http://x.autoimg.cn/club/Post/img/smiles/62.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="猪头"><img src="http://x.autoimg.cn/club/Post/img/smiles/63.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="玫瑰"><img src="http://x.autoimg.cn/club/Post/img/smiles/64.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="凋零"><img src="http://x.autoimg.cn/club/Post/img/smiles/65.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="示爱"><img src="http://x.autoimg.cn/club/Post/img/smiles/66.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="爱心"><img src="http://x.autoimg.cn/club/Post/img/smiles/67.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="心碎"><img src="http://x.autoimg.cn/club/Post/img/smiles/68.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="蛋糕"><img src="http://x.autoimg.cn/club/Post/img/smiles/69.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="闪电"><img src="http://x.autoimg.cn/club/Post/img/smiles/70.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="炸弹"><img src="http://x.autoimg.cn/club/Post/img/smiles/71.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="刀"><img src="http://x.autoimg.cn/club/Post/img/smiles/72.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="足球"><img src="http://x.autoimg.cn/club/Post/img/smiles/73.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="瓢虫"><img src="http://x.autoimg.cn/club/Post/img/smiles/74.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="便便"><img src="http://x.autoimg.cn/club/Post/img/smiles/75.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="月亮"><img src="http://x.autoimg.cn/club/Post/img/smiles/76.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="太阳"><img src="http://x.autoimg.cn/club/Post/img/smiles/77.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="礼物"><img src="http://x.autoimg.cn/club/Post/img/smiles/78.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="拥抱"><img src="http://x.autoimg.cn/club/Post/img/smiles/79.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="强"><img src="http://x.autoimg.cn/club/Post/img/smiles/80.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="弱"><img src="http://x.autoimg.cn/club/Post/img/smiles/81.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="握手"><img src="http://x.autoimg.cn/club/Post/img/smiles/82.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="胜利"><img src="http://x.autoimg.cn/club/Post/img/smiles/83.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="抱拳"><img src="http://x.autoimg.cn/club/Post/img/smiles/84.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="勾引"><img src="http://x.autoimg.cn/club/Post/img/smiles/85.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="拳头"><img src="http://x.autoimg.cn/club/Post/img/smiles/86.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="差劲"><img src="http://x.autoimg.cn/club/Post/img/smiles/87.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="爱你"><img src="http://x.autoimg.cn/club/Post/img/smiles/88.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="NO"><img src="http://x.autoimg.cn/club/Post/img/smiles/89.gif"></a></li>
+                                    <li><a href="javascript:void(0);" title="OK"><img src="http://x.autoimg.cn/club/Post/img/smiles/90.gif"></a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <a href="#" class="form-btn">完成</a>
+                        </div>
+                      </div>
+                    </div>
+                  </dd>
+                </dl>
+              </li>
+            </ul>
+            <a href="#" class="a-btn add-day">加一天</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- 当前编辑页弹窗 -->
+<div class="customize-modal modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 表情弹窗 -->
+<!-- <div id="popFace" class="pop pop01 pop-bottom fn-hide">
+  <div class="pop-content">
+    <div class="pop-content-info pop_expre js_face">
+      <ul>
+        <li><a href="javascript:void(0);" title="微笑"><img src="http://x.autoimg.cn/club/Post/img/smiles/1.gif"></a></li>
+        <li><a href="javascript:void(0);" title="撇嘴"><img src="http://x.autoimg.cn/club/Post/img/smiles/2.gif"></a></li>
+        <li><a href="javascript:void(0);" title="色"><img src="http://x.autoimg.cn/club/Post/img/smiles/3.gif"></a></li>
+        <li><a href="javascript:void(0);" title="发呆"><img src="http://x.autoimg.cn/club/Post/img/smiles/4.gif"></a></li>
+        <li><a href="javascript:void(0);" title="得意"><img src="http://x.autoimg.cn/club/Post/img/smiles/5.gif"></a></li>
+        <li><a href="javascript:void(0);" title="流泪"><img src="http://x.autoimg.cn/club/Post/img/smiles/6.gif"></a></li>
+        <li><a href="javascript:void(0);" title="害羞"><img src="http://x.autoimg.cn/club/Post/img/smiles/7.gif"></a></li>
+        <li><a href="javascript:void(0);" title="闭嘴"><img src="http://x.autoimg.cn/club/Post/img/smiles/8.gif"></a></li>
+        <li><a href="javascript:void(0);" title="睡"><img src="http://x.autoimg.cn/club/Post/img/smiles/9.gif"></a></li>
+        <li><a href="javascript:void(0);" title="大哭"><img src="http://x.autoimg.cn/club/Post/img/smiles/10.gif"></a></li>
+        <li><a href="javascript:void(0);" title="尴尬"><img src="http://x.autoimg.cn/club/Post/img/smiles/11.gif"></a></li>
+        <li><a href="javascript:void(0);" title="发怒"><img src="http://x.autoimg.cn/club/Post/img/smiles/12.gif"></a></li>
+        <li><a href="javascript:void(0);" title="调皮"><img src="http://x.autoimg.cn/club/Post/img/smiles/13.gif"></a></li>
+        <li><a href="javascript:void(0);" title="嘻嘻"><img src="http://x.autoimg.cn/club/Post/img/smiles/14.gif"></a></li>
+        <li><a href="javascript:void(0);" title="惊讶"><img src="http://x.autoimg.cn/club/Post/img/smiles/15.gif"></a></li>
+        <li><a href="javascript:void(0);" title="难过"><img src="http://x.autoimg.cn/club/Post/img/smiles/16.gif"></a></li>
+        <li><a href="javascript:void(0);" title="酷"><img src="http://x.autoimg.cn/club/Post/img/smiles/17.gif"></a></li>
+        <li><a href="javascript:void(0);" title="冷汗"><img src="http://x.autoimg.cn/club/Post/img/smiles/18.gif"></a></li>
+        <li><a href="javascript:void(0);" title="抓狂"><img src="http://x.autoimg.cn/club/Post/img/smiles/19.gif"></a></li>
+        <li><a href="javascript:void(0);" title="吐"><img src="http://x.autoimg.cn/club/Post/img/smiles/20.gif"></a></li>
+        <li><a href="javascript:void(0);" title="偷笑"><img src="http://x.autoimg.cn/club/Post/img/smiles/21.gif"></a></li>
+        <li><a href="javascript:void(0);" title="可爱"><img src="http://x.autoimg.cn/club/Post/img/smiles/22.gif"></a></li>
+        <li><a href="javascript:void(0);" title="白眼"><img src="http://x.autoimg.cn/club/Post/img/smiles/23.gif"></a></li>
+        <li><a href="javascript:void(0);" title="傲慢"><img src="http://x.autoimg.cn/club/Post/img/smiles/24.gif"></a></li>
+        <li><a href="javascript:void(0);" title="饥饿"><img src="http://x.autoimg.cn/club/Post/img/smiles/25.gif"></a></li>
+        <li><a href="javascript:void(0);" title="困"><img src="http://x.autoimg.cn/club/Post/img/smiles/26.gif"></a></li>
+        <li><a href="javascript:void(0);" title="惊恐"><img src="http://x.autoimg.cn/club/Post/img/smiles/27.gif"></a></li>
+        <li><a href="javascript:void(0);" title="汗"><img src="http://x.autoimg.cn/club/Post/img/smiles/28.gif"></a></li>
+        <li><a href="javascript:void(0);" title="憨笑"><img src="http://x.autoimg.cn/club/Post/img/smiles/29.gif"></a></li>
+        <li><a href="javascript:void(0);" title="大兵"><img src="http://x.autoimg.cn/club/Post/img/smiles/30.gif"></a></li>
+        <li><a href="javascript:void(0);" title="奋斗"><img src="http://x.autoimg.cn/club/Post/img/smiles/31.gif"></a></li>
+        <li><a href="javascript:void(0);" title="咒骂"><img src="http://x.autoimg.cn/club/Post/img/smiles/32.gif"></a></li>
+        <li><a href="javascript:void(0);" title="疑问"><img src="http://x.autoimg.cn/club/Post/img/smiles/33.gif"></a></li>
+        <li><a href="javascript:void(0);" title="嘘"><img src="http://x.autoimg.cn/club/Post/img/smiles/34.gif"></a></li>
+        <li><a href="javascript:void(0);" title="晕"><img src="http://x.autoimg.cn/club/Post/img/smiles/35.gif"></a></li>
+        <li><a href="javascript:void(0);" title="折磨"><img src="http://x.autoimg.cn/club/Post/img/smiles/36.gif"></a></li>
+        <li><a href="javascript:void(0);" title="衰"><img src="http://x.autoimg.cn/club/Post/img/smiles/37.gif"></a></li>
+        <li><a href="javascript:void(0);" title="骷髅"><img src="http://x.autoimg.cn/club/Post/img/smiles/38.gif"></a></li>
+        <li><a href="javascript:void(0);" title="敲打"><img src="http://x.autoimg.cn/club/Post/img/smiles/39.gif"></a></li>
+        <li><a href="javascript:void(0);" title="再见"><img src="http://x.autoimg.cn/club/Post/img/smiles/40.gif"></a></li>
+        <li><a href="javascript:void(0);" title="擦汗"><img src="http://x.autoimg.cn/club/Post/img/smiles/41.gif"></a></li>
+        <li><a href="javascript:void(0);" title="挖鼻"><img src="http://x.autoimg.cn/club/Post/img/smiles/42.gif"></a></li>
+        <li><a href="javascript:void(0);" title="鼓掌"><img src="http://x.autoimg.cn/club/Post/img/smiles/43.gif"></a></li>
+        <li><a href="javascript:void(0);" title="糗大了"><img src="http://x.autoimg.cn/club/Post/img/smiles/44.gif"></a></li>
+        <li><a href="javascript:void(0);" title="坏笑"><img src="http://x.autoimg.cn/club/Post/img/smiles/45.gif"></a></li>
+        <li><a href="javascript:void(0);" title="左哼哼"><img src="http://x.autoimg.cn/club/Post/img/smiles/46.gif"></a></li>
+        <li><a href="javascript:void(0);" title="右哼哼"><img src="http://x.autoimg.cn/club/Post/img/smiles/47.gif"></a></li>
+        <li><a href="javascript:void(0);" title="哈欠"><img src="http://x.autoimg.cn/club/Post/img/smiles/48.gif"></a></li>
+        <li><a href="javascript:void(0);" title="鄙视"><img src="http://x.autoimg.cn/club/Post/img/smiles/49.gif"></a></li>
+        <li><a href="javascript:void(0);" title="委屈"><img src="http://x.autoimg.cn/club/Post/img/smiles/50.gif"></a></li>
+        <li><a href="javascript:void(0);" title="快哭了"><img src="http://x.autoimg.cn/club/Post/img/smiles/51.gif"></a></li>
+        <li><a href="javascript:void(0);" title="阴险"><img src="http://x.autoimg.cn/club/Post/img/smiles/52.gif"></a></li>
+        <li><a href="javascript:void(0);" title="亲亲"><img src="http://x.autoimg.cn/club/Post/img/smiles/53.gif"></a></li>
+        <li><a href="javascript:void(0);" title="吓"><img src="http://x.autoimg.cn/club/Post/img/smiles/54.gif"></a></li>
+        <li><a href="javascript:void(0);" title="可怜"><img src="http://x.autoimg.cn/club/Post/img/smiles/55.gif"></a></li>
+        <li><a href="javascript:void(0);" title="菜刀"><img src="http://x.autoimg.cn/club/Post/img/smiles/56.gif"></a></li>
+        <li><a href="javascript:void(0);" title="西瓜"><img src="http://x.autoimg.cn/club/Post/img/smiles/57.gif"></a></li>
+        <li><a href="javascript:void(0);" title="啤酒"><img src="http://x.autoimg.cn/club/Post/img/smiles/58.gif"></a></li>
+        <li><a href="javascript:void(0);" title="篮球"><img src="http://x.autoimg.cn/club/Post/img/smiles/59.gif"></a></li>
+        <li><a href="javascript:void(0);" title="乒乓"><img src="http://x.autoimg.cn/club/Post/img/smiles/60.gif"></a></li>
+        <li><a href="javascript:void(0);" title="咖啡"><img src="http://x.autoimg.cn/club/Post/img/smiles/61.gif"></a></li>
+        <li><a href="javascript:void(0);" title="饭"><img src="http://x.autoimg.cn/club/Post/img/smiles/62.gif"></a></li>
+        <li><a href="javascript:void(0);" title="猪头"><img src="http://x.autoimg.cn/club/Post/img/smiles/63.gif"></a></li>
+        <li><a href="javascript:void(0);" title="玫瑰"><img src="http://x.autoimg.cn/club/Post/img/smiles/64.gif"></a></li>
+        <li><a href="javascript:void(0);" title="凋零"><img src="http://x.autoimg.cn/club/Post/img/smiles/65.gif"></a></li>
+        <li><a href="javascript:void(0);" title="示爱"><img src="http://x.autoimg.cn/club/Post/img/smiles/66.gif"></a></li>
+        <li><a href="javascript:void(0);" title="爱心"><img src="http://x.autoimg.cn/club/Post/img/smiles/67.gif"></a></li>
+        <li><a href="javascript:void(0);" title="心碎"><img src="http://x.autoimg.cn/club/Post/img/smiles/68.gif"></a></li>
+        <li><a href="javascript:void(0);" title="蛋糕"><img src="http://x.autoimg.cn/club/Post/img/smiles/69.gif"></a></li>
+        <li><a href="javascript:void(0);" title="闪电"><img src="http://x.autoimg.cn/club/Post/img/smiles/70.gif"></a></li>
+        <li><a href="javascript:void(0);" title="炸弹"><img src="http://x.autoimg.cn/club/Post/img/smiles/71.gif"></a></li>
+        <li><a href="javascript:void(0);" title="刀"><img src="http://x.autoimg.cn/club/Post/img/smiles/72.gif"></a></li>
+        <li><a href="javascript:void(0);" title="足球"><img src="http://x.autoimg.cn/club/Post/img/smiles/73.gif"></a></li>
+        <li><a href="javascript:void(0);" title="瓢虫"><img src="http://x.autoimg.cn/club/Post/img/smiles/74.gif"></a></li>
+        <li><a href="javascript:void(0);" title="便便"><img src="http://x.autoimg.cn/club/Post/img/smiles/75.gif"></a></li>
+        <li><a href="javascript:void(0);" title="月亮"><img src="http://x.autoimg.cn/club/Post/img/smiles/76.gif"></a></li>
+        <li><a href="javascript:void(0);" title="太阳"><img src="http://x.autoimg.cn/club/Post/img/smiles/77.gif"></a></li>
+        <li><a href="javascript:void(0);" title="礼物"><img src="http://x.autoimg.cn/club/Post/img/smiles/78.gif"></a></li>
+        <li><a href="javascript:void(0);" title="拥抱"><img src="http://x.autoimg.cn/club/Post/img/smiles/79.gif"></a></li>
+        <li><a href="javascript:void(0);" title="强"><img src="http://x.autoimg.cn/club/Post/img/smiles/80.gif"></a></li>
+        <li><a href="javascript:void(0);" title="弱"><img src="http://x.autoimg.cn/club/Post/img/smiles/81.gif"></a></li>
+        <li><a href="javascript:void(0);" title="握手"><img src="http://x.autoimg.cn/club/Post/img/smiles/82.gif"></a></li>
+        <li><a href="javascript:void(0);" title="胜利"><img src="http://x.autoimg.cn/club/Post/img/smiles/83.gif"></a></li>
+        <li><a href="javascript:void(0);" title="抱拳"><img src="http://x.autoimg.cn/club/Post/img/smiles/84.gif"></a></li>
+        <li><a href="javascript:void(0);" title="勾引"><img src="http://x.autoimg.cn/club/Post/img/smiles/85.gif"></a></li>
+        <li><a href="javascript:void(0);" title="拳头"><img src="http://x.autoimg.cn/club/Post/img/smiles/86.gif"></a></li>
+        <li><a href="javascript:void(0);" title="差劲"><img src="http://x.autoimg.cn/club/Post/img/smiles/87.gif"></a></li>
+        <li><a href="javascript:void(0);" title="爱你"><img src="http://x.autoimg.cn/club/Post/img/smiles/88.gif"></a></li>
+        <li><a href="javascript:void(0);" title="NO"><img src="http://x.autoimg.cn/club/Post/img/smiles/89.gif"></a></li>
+        <li><a href="javascript:void(0);" title="OK"><img src="http://x.autoimg.cn/club/Post/img/smiles/90.gif"></a></li>
+      </ul>
+    </div>
+    <div class="pop-content-bottom">
+      <a href="#" class="btn btn-mini btn-blue" data-dismiss="pop">关闭</a>
+    </div>
+  </div>
+  <span class="pop-bottom pop-arrow"></span>
+</div> -->
+
+
+<script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript" src="../scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="../scripts/upload/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../scripts/upload/jquery.fileupload.js"></script>
+<script type="text/javascript" src="../scripts/upload/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="../scripts/upload/cropper.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/0.9.1/cropper.min.js"></script> -->
+
+<script type="text/javascript" src="../scripts/upload/sitelogo.js"></script>
+<script type="text/javascript" src="../scripts/upload/uploader.comps.js"></script>
+<script type="text/javascript" src="../scripts/gridly/jquery.gridly.js"></script>
+<script src="../public/components/select2/dist/js/select2.min.js"></script>
+<script src="../public/components/air-datepicker/dist/js/datepicker.min.js"></script>
+<script src="../public/components/air-datepicker/dist/js/i18n/datepicker.zh.js"></script>
+<!-- <script type="text/javascript" src="http://www.my97.net/dp/My97DatePicker/WdatePicker.js"></script> -->
+<!-- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
+<script type="text/javascript" src="../scripts/travel.index.js"></script>
+<script type="text/javascript" src="../scripts/travel.note.js"></script>
+<!-- <script type="text/javascript" src="../scripts/editor.js"></script> -->
+</body>
+</html>

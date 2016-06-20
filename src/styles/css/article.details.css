@@ -1,0 +1,29 @@
+.article-content {
+  float: left;
+  width: 670px;
+}
+.survey-box {
+  padding: 20px;
+  background-color: #fafafa;
+}
+.survey-box .survey-inner {
+  margin: 0 -25px;
+}
+.survey-box .item {
+  float: left;
+  margin: 0 25px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  padding-left: 22px;
+  position: relative;
+}
+.survey-box .item i {
+  font-size: 16px;
+  color: #1a8cec;
+  vertical-align: top;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}

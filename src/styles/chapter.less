@@ -1,0 +1,51 @@
+.details-banner {
+  height: 330px;
+  box-shadow: inset 0 -2px 3px rgba(0,0,0,.15);
+}
+.article-details {
+  position: relative;
+}
+
+.article-content {
+  float: left;
+  width: 670px;
+
+}
+.side-content {
+  float: left;
+  width: 300px;
+  margin-left: 20px;
+}
+.chapter-list {
+  position: fixed;
+  padding: 20px 10px;
+  border-left: 1px solid #eee;
+  .target-icon {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #333;
+    left: -2px;
+    top: 0;
+    transition: top ease .5s;
+  }
+
+  dt {
+    position: relative;
+    &:before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 100%;
+      position: absolute;
+      left: -12px;
+      top: 50%;
+      margin-top: -2px;
+      background-color: #999;
+    }
+  }
+  dd {
+    margin-left: 15px;
+  }
+}

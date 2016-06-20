@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EditorDemo</title>
+  <!-- build:css /styles/base.css -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/upload/jquery.fileupload.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/upload/jquery.fileupload-ui.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/upload/cropper.min.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/gridly/jquery.gridly.css" />
+  <link href="../public/components/air-datepicker/dist/css/datepicker.min.css" rel="stylesheet" />
+  <link href="../public/components/select2/dist/css/select2.min.css" rel="stylesheet" />
+  <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+  <link rel="stylesheet" type="text/css" href="../styles/css/base.css" />
+  <!-- endbuild -->
+</head>
+<body>
+<div class="wrapper">
+  <div class="clearfix header-box">
+    <div class="bread-nav">
+      <a href="#">游记</a>
+      &gt;
+      <span>发表游记</span>
+    </div>
+  </div>
+  <form>
+    <div class="cover-container">
+      <div class="input-upload">
+        <a href="#" class="customize-upload">
+          <span>设置封面</span>
+          <input id="fileupload" type="file" name="files[]" />
+        </a>
+      </div>
+    </div>
+    <div class="note-form">
+      <div class="form-inner">
+        <div class="title-note">
+          <div class="form-group">
+            <label for="note-title">为您的游记写一个独一无二的标题</label>
+            <div class="form-controls">
+              <i class="required-icon">*</i>
+              <input type="text" class="form-control" class="note-title" maxlength="18" />
+              <span class="total-words"><i>0</i>/18</span>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix">
+          <div class="add-tags">
+            <a href="#" class="btn-add-tags">添加标签</a>
+            <span>添加标签可能被推荐到首页～</span> 
+          </div>
+        </div>
+        <p class="base-info-tips">填写基础信息,游记轻松变精华</p>
+        <div class="form-horizontal comps-form">
+          <div class="form-groups">
+            <label>出行时间</label>
+            <div class="form-controls">
+              <div class="input-group">
+                <i class="required-icon">*</i>
+                <input type="text" class="form-control datepicker-options" placeholder="请选择" data-language='zh' />
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="form-groups">
+            <label>出发地</label>
+            <div class="form-controls">
+              <div class="input-group">
+                <i class="required-icon">*</i>
+                <input type="text" class="form-control" placeholder="请选择" id="address" />
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="form-groups">
+            <label>人均费用</label>
+            <div class="form-controls">
+              <i class="required-icon">*</i>
+              <select class="form-control travel-cost" placeholder="请选择">
+                <option></option>
+                <option>500以下</option>
+                <option>500—999</option>
+                <option>1000—2999</option>
+                <option>3000—4999</option>
+                <option>5000—9999</option>
+                <option>10000—19999</option>
+                <option>2万—5万</option>
+                <option>5万以上</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="form-btn next-step">下一步</a>
+    </div>
+  </form>
+</div>
+
+<!-- 当前编辑页弹窗 -->
+<div class="customize-modal modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <!-- <p>封面图片最小尺寸为990*330</p>
+        <p>请重新选择封面图片</p> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript" src="../scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="../scripts/upload/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../scripts/upload/jquery.fileupload.js"></script>
+<script type="text/javascript" src="../scripts/upload/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="../scripts/upload/cropper.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/0.9.1/cropper.min.js"></script> -->
+
+<script type="text/javascript" src="../scripts/upload/sitelogo.js"></script>
+<script type="text/javascript" src="../scripts/upload/uploader.comps.js"></script>
+<script type="text/javascript" src="../scripts/gridly/jquery.gridly.js"></script>
+<script src="../public/components/select2/dist/js/select2.min.js"></script>
+<script src="../public/components/air-datepicker/dist/js/datepicker.min.js"></script>
+<script src="../public/components/air-datepicker/dist/js/i18n/datepicker.zh.js"></script>
+<!-- <script type="text/javascript" src="http://www.my97.net/dp/My97DatePicker/WdatePicker.js"></script> -->
+<!-- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
+<script type="text/javascript" src="../scripts/travel.index.js"></script>
+<!-- <script type="text/javascript" src="../scripts/editor.js"></script> -->
+</body>
+</html>

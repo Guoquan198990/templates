@@ -1,0 +1,535 @@
+.header-box {
+  padding: 6px 0;
+  font-size: 14px;
+  line-height: 30px;
+}
+.bread-nav {
+  float: left;
+  &, a {
+    color: #000;
+  }
+}
+.cover-container {
+  width: 100%;
+  height: 330px;
+  overflow: hidden;
+  position: relative;
+  background: url('../../images/bg_cover.jpg') center center no-repeat;
+  background-size: cover;
+  .customize-upload {
+    position: absolute;
+    border: 1px solid #abccf9;
+    .border-radius;
+    line-height: 32px;
+    color: #fff;
+    padding: 0 15px;
+    background-color: #316bb9;
+    bottom: 12px;
+    right: 12px;
+    .box-shadow(0 0 2px rgba(0,0,2,.2));
+    input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+
+.form-inner {
+  width: 670px;
+}
+
+.title-note {
+  label {
+    color: #999;
+    font-weight: normal;
+    margin: 20px 0;
+    font-size: 16px;
+  }
+  .form-controls {
+    position: relative;
+    margin-left: 15px;
+  }
+  .required-icon {
+    color: #f85d5d;
+    position: absolute;
+    line-height: 52px;
+    left: -15px;
+  }
+  input {
+    padding-right: 70px;
+    line-height: 38px;
+    height: auto;
+    color: #333;
+    font-size: 18px;
+  }
+  .total-words {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    line-height: 52px;
+    color: #1a8ced;
+    font-size: 18px;
+    i {
+      font-style: normal;
+    }
+  }
+}
+
+.form-control {
+  .border-radius;
+  font-size: 16px;
+  &:focus {
+    .form-border;
+  }
+}
+
+.add-tags {
+  line-height: 20px;
+  font-size: 12px;
+  color: #9bbeff;
+  margin-left: 15px;
+  float: left;
+  a {
+    color: #fff;
+    background-color: #9bbeff;
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 12px;
+    margin-right: 10px;
+    .border-radius;
+  }
+}
+
+.remove-tag {
+  cursor: pointer;
+}
+
+.tag-input {
+  .form-control;
+  margin-bottom: 25px;
+}
+.tag-padding-btn {
+  display: inline-block;
+  margin: 5px 10px 5px 0;
+  padding: 0 15px 0 10px;
+  background-color: #1a8ced;
+  color: #fff;
+  .border-radius;
+  &.exist {
+    animation: shake .6s linear;
+  }
+}
+
+.radio-inline, .checkbox-inline {
+  padding: 0;
+  margin-right: 10px;
+}
+.radio-inline + .radio-inline, .checkbox-inline + .checkbox-inline {
+  margin: 0 10px 0 0;
+  // padding: 0;
+}
+.customize-checkbox {
+  input {
+    display: none;
+    &:checked + span {
+      color: #1a8ced;
+    }
+    &[disabled] {
+      & + span {
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.base-info-tips {
+  color: #999;
+  font-size: 16px;
+  margin-top: 55px;
+}
+
+.comps-form {
+  .form-controls {
+    position: relative;
+    margin-left: 115px;
+    width: 310px;
+  }
+
+  .required-icon {
+    color: #f85d5d;
+    position: absolute;
+    line-height: 40px;
+    left: -15px;
+  }
+  .form-groups {
+    margin: 20px 0;
+  }
+  label {
+    width: 80px;
+    float: left;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #282828;
+    margin: 0;
+    text-align: justify;
+    text-align-last: justify;
+  }
+  .input-group {
+    display: block;
+    // border: 1px solid #ccc;
+    // .border-radius;
+  }
+  .input-group-addon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 34px;
+    height: 14px;
+    padding: 0;
+    z-index: 15;
+    margin-top: -7px;
+    border: none;
+    background: transparent;
+    padding: 0 10px;
+  }
+  input.form-control {
+    // &:focus {
+    //   border-color: #1a8ced;
+    //   .box-shadow(0 0px 3px rgba(0,0,0,.15));
+    // }
+    &:not(select) {
+      line-height: 26px;
+      height: auto;
+      float: none;
+      padding-right: 36px;
+    }
+  }
+  .input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-group > .btn, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-group:not(:last-child) > .btn,
+  .input-group-addon:not(:first-child):not(:last-child), .input-group-btn:not(:first-child):not(:last-child), .input-group .form-control:not(:first-child):not(:last-child),
+  .input-group .form-control:not(:first-child):not(:last-child), .input-group-addon:not(:first-child):not(:last-child), .input-group-btn:not(:first-child):not(:last-child) {
+    .border-radius;
+  }
+  select.form-control {
+    height: 38px;
+    .border-radius;
+  }
+
+  // 复写select2
+  .select2-container--default .select2-selection--single {
+    border-color: #ccc;
+    .border-radius;
+    height: 40px;
+    font-size: 16px;
+    &:focus {
+      outline: none;
+      border-color: #1a8ced;
+    }
+  }
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 38px;
+  }
+  .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 38px;
+  }
+}
+
+.form-btn {
+  color: #fff;
+  width: 130px;
+  line-height: 40px;
+  display: block;
+  margin: 20px auto;
+  font-size: 16px;
+  background-color: #1a8ced;
+  text-align: center;
+  .border-radius;
+  &:hover, &:focus {
+    color: #fff;
+  }
+}
+
+.next-step {
+  margin: 110px auto;
+}
+
+.select2-results__option {
+  font-size: 15px;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected],
+.select2-container--default .select2-results__option[aria-selected=true] {
+  background-color: transparent;
+  color: #1a8ced;
+}
+.select2-dropdown {
+  .form-border;
+  .border-radius;
+}
+
+// 复写autocomplete组件
+.ui-widget-content {
+  font-size: 16px;
+  line-height: 36px;
+  border-top: none;
+  .border-radius;
+  .form-border;
+  .ui-state-focus {
+    background: transparent;
+    border: none;
+    color: #1a8ced;
+    margin: 0;
+  }
+}
+
+// 复写弹窗
+.customize-modal {
+  .modal-dialog {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: 0;
+  }
+  &.fade .modal-dialog {
+    transform: translate(-50%, 0);
+  }
+  &.in .modal-dialog {
+    transform: translate(-50%, -50%);
+  }
+  .modal-content {
+    padding: 30px 60px;
+    width: auto;
+    font-size: 15px;
+    line-height: 30px;
+    color: #000;
+    .border-radius;
+    border: none;
+    .box-shadow(0 0px 3px rgba(0, 0, 0, 0.2));
+  }
+  .modal-header, .modal-footer {
+    padding: 0;
+    border: none;
+  }
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 3px;
+  }
+  label {
+    font-weight: normal;
+    span {
+      color: #999;
+    }
+  }
+  .form-btn {
+    margin: 40px auto 0;
+  }
+}
+
+// 复写图片剪裁
+.crop-modal {
+  .modal-dialog {
+    height: 320px;
+    width: 840px;
+  }
+  .modal-content {
+    border: none;
+    .border-radius;
+    .box-shadow(none);
+    padding: 0;
+    background: transparent;
+  }
+  .modal-header {
+    display: none;
+  }
+  .modal-body, .avatar-body {
+    padding: 0;
+  }
+  .avatar-wrapper {
+    margin: 0;
+    height: 320px;
+    width: 840px;
+    overflow: visible;
+    background: transparent;
+    .box-shadow(none);
+  }
+  .form-groups {
+    position: absolute;
+    bottom: 30px;
+    color: #fff;
+    width: 100%;
+    text-align: right;
+    right: 0;
+    bottom: -50px;
+    button {
+      background: rgba(255,255,255,.3);
+      line-height: 30px;
+      padding: 0 20px;
+      margin-left: 10px;
+      &:hover, &:focus {
+        color: #fff;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .cropper-crop-box {
+    cursor: move;
+  }
+  .cropper-view-box {
+    outline: 1px solid #fff;
+  }
+  .cropper-line, .cropper-point {
+    background-color: #fff;
+  }
+  .cropper-drag-box {
+    display: none;
+  }
+  .cropper-canvas {
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #000;
+      opacity: .5;
+      left: 0;
+      top: 0;
+    }
+  }
+  .crop-size {
+    .middle;
+    font-size: 14px;
+    line-height: 30px;
+    .border-radius;
+    background-color: rgba(255,255,255,.5);
+    color: #fff;
+    padding: 0 28px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.75);
+  }
+  .cropper-face {
+    z-index: 1;
+  }
+}
+
+// 错误提示信息弹窗
+.error-modal {
+  .modal-dialog {
+    width: 440px;
+  }
+  .modal-content {
+    padding: 0;
+  }
+  .modal-body {
+    padding: 44px 0 114px;
+  }
+}
+
+
+// 复写日历样式
+// .datepicker {
+//   border-color: #1a8ced;
+//   .form-shadow;
+// }
+// .datepicker--pointer {
+//   border-top-color: #1a8ced;
+//   border-right-color: #1a8ced;
+// }
+// .datepicker--nav {
+//   border-bottom-color: #1a8ced;
+// }
+.datepicker--cell {
+  .border-radius;
+  &.-current- {
+    color: #1a8ced;
+  }
+  &.-selected- {
+    &, &.-current-, &.-focus- {
+      background: #1a8ced;
+    }
+  }
+}
+
+@webkit-keyframes shake {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-5px, 0, 0);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translate3d(5px, 0, 0);
+  }
+}
+
+.error-panel {
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+  img {
+    margin-bottom: 25px;
+  }
+  p {
+    margin: 0;
+  }
+  .btn-panel {
+    position: absolute;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    margin: 0;
+    bottom: 0;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .form-btn {
+    background: none;
+    margin: 0;
+    width: auto;
+    display: inline-block;
+    &, &:hover {
+      color: #f1752b;
+    }
+  }
+}
+
+
+@keyframes shake {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-5px, 0, 0);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translate3d(5px, 0, 0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

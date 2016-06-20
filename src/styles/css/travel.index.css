@@ -1,0 +1,34 @@
+.cover-container {
+  width: 100%;
+  height: 330px;
+  overflow: hidden;
+  position: relative;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#15d1b4+0,329fe0+80,339ee1+100,408bf1+100 */
+  background: #15d1b4;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #15d1b4 0%, #329fe0 80%, #339ee1 100%, #408bf1 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #15d1b4 0%, #329fe0 80%, #339ee1 100%, #408bf1 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #15d1b4 0%, #329fe0 80%, #339ee1 100%, #408bf1 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#15d1b4', endColorstr='#408bf1', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+}
+.cover-container .customize-upload {
+  position: absolute;
+  border: 1px solid #abccf9;
+  border-radius: 2px;
+  line-height: 32px;
+  color: #fff;
+  padding: 0 15px;
+  background-color: #316bb9;
+  bottom: 12px;
+  right: 12px;
+}
+.cover-container .customize-upload input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
