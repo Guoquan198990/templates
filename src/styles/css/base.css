@@ -7413,9 +7413,6 @@ textarea.tag-input {
   -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0px 3px rgba(0, 0, 0, 0.15);
 }
-.editor-panel .form-control:focus .mask-panel {
-  display: none;
-}
 .editor-panel .address-input {
   width: 100px;
   max-width: 100px;
@@ -7431,6 +7428,12 @@ textarea.tag-input {
 .editor-panel.editing .form-control,
 .editor-panel.editing .total-words {
   display: block;
+}
+.editor-panel.editing .form-control {
+  padding: 6px 12px;
+  border: 1px solid #1a8ced;
+  -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.15);
 }
 .editor-panel.editing .mask-panel {
   display: none;
@@ -7641,6 +7644,79 @@ textarea.tag-input {
   padding: 0 10px;
   margin-left: 3px;
 }
+.menu-box {
+  float: right;
+  width: 300px;
+  padding-left: 24px;
+  -webkit-box-sizing: cover;
+  -moz-box-sizing: cover;
+  box-sizing: cover;
+  font-size: 20px;
+}
+.menu-box .title {
+  margin: 32px 0 18px;
+}
+.menu-box .chapter-box {
+  position: relative;
+}
+.menu-box .menu {
+  margin-left: 16px;
+  border-left: solid 1px #ccc;
+}
+.menu-box .menu p {
+  margin-left: 14px;
+  line-height: 40px;
+}
+.menu-box .menu .item-tit {
+  position: relative;
+  font-size: 16px;
+  color: #353535;
+}
+.menu-box .menu .item-tit:before {
+  content: '';
+  position: absolute;
+  top: 38%;
+  left: -18px;
+  width: 8px;
+  height: 8px;
+  background: #868686;
+  border-radius: 50%;
+  border: solid 2px #fff;
+}
+.menu-box .menu .item-txt {
+  font-size: 14px;
+  color: #797979;
+}
+.menu-box .menu .item-txt i {
+  margin-right: 4px;
+  letter-spacing: 2px;
+  color: #ececec;
+}
+.menu-box .menu .active {
+  position: relative;
+  color: #f1752b;
+}
+.menu-box .menu .active i {
+  color: #f1752b;
+}
+.menu-box .chapter-icon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: #f1752b;
+  -webkit-border-radius: 2px 0 0 2px;
+  -moz-border-radius: 2px 0 0 2px;
+  border-radius: 2px 0 0 2px;
+  left: 7px;
+  top: 12px;
+}
+.menu-box .chapter-icon:before {
+  content: "";
+  position: absolute;
+  border: 9px solid transparent;
+  border-left-color: #f1752b;
+  right: -18px;
+}
 .select2-container--open .select2-dropdown--above {
   border-bottom: 1px solid #1a8ced;
   -webkit-border-radius: 2px;
@@ -7714,6 +7790,7 @@ textarea.tag-input {
   font-size: 12px;
   top: 34px;
   display: none;
+  background-color: #fff;
 }
 .pop01 {
   width: 492px;

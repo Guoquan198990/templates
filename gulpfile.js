@@ -10,7 +10,6 @@ var gulp    = require('gulp'),                 //基础库
     clean = require('gulp-clean'),             //清空文件夹
     tinylr = require('tiny-lr'),               //livereload
     server = tinylr(),
-    port = 8099,
     connect = require('gulp-connect'),
     livereload = require('gulp-livereload'),   //livereload
     $ = require('gulp-load-plugins')();
