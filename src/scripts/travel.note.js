@@ -16,9 +16,6 @@ $(document).ready(function() {
     }
     $(targetEle).val('').focus().val(targetVal).keyup(function() {
       $(this).next('.total-words').find('i').html($(this).val().length);
-      // curDtIndex = $(this).parents('.item-txt').index('.item-txt');
-      // $('.item-txt, .item-tit').removeClass('active');
-      // $('.chapter-box').find(targetNode).children().eq(curDtIndex).html('<p class="item-txt active"><i>-----</i>' + $(this).val() + '</p>');
     });
 
     if(qqFaceEle.length) {
@@ -29,8 +26,16 @@ $(document).ready(function() {
       if(qqFaceEle.is('.facing')) return;
       targetVal = $(targetEle).val();
       targetVal += '<a href="#" class="glyphicon glyphicon-pencil edit-btn" data-target="' + targetEle + '" data-role="' + targetRole + '" data-node="' + targetNode + '"></a>';
+      targetVal = targetVal.replace(/(\[([\s\S]+?)\])/g, function(s, $1, name) {
+        var faceImg = '';
+        $.each(TRAVEL_CONFIG.QQ_FACE, function(i, val) {
+          if(val.name === s) {
+            faceImg = '<img src="' + val.url + '" alt="' + name + '">'
+          }
+        });
+        return faceImg;
+      });
       targetParents.removeClass('editing').find('.show-data span').html(targetVal);
-      // curDtIndex = $(this).parents('li').find('dt').index('dt');
       curDtIndex = $(targetNode).find('dt').index($(this).parents('dt'));
       if(targetRole === 'title') {
         htmldir($(targetEle).val(), 'level2', targetNode, curDtIndex);
@@ -46,16 +51,12 @@ $(document).ready(function() {
       $('.chapter-box').find(targetEle).children().eq(curDtIndex + 1).html('<p class="item-txt active"><i>-----</i>' + titleCon + '</p>');
       return;
     }
-    
-    console.log(titleCon.toLowerCase());
-    debugger
     if(type === 'level1') {
       chapterHtml = '<li class="' + titleCon.toLowerCase() + '"><p class="item-tit active">' + titleCon + '</p></li>';
     } else if(type === 'level2') {
       chapterHtml = '<p class="item-txt active"><i>-----</i>' + titleCon + '</p>';
     }
     $('.chapter-box').find(targetEle).append(chapterHtml);
-    debugger
   }
 
   // 获取qq表情包
@@ -80,10 +81,10 @@ $(document).ready(function() {
     var _this = $(this);
     var role = _this.data('role');
     var targetLi = _this.data('day');
+    var dayNum = targetLi.substr(('.day').length);
     if(role == 'title') {
       var titleEleLen = $(targetLi).find('.comps-title').length;
       var titleNum = titleEleLen ? titleEleLen : 0;
-      var dayNum = targetLi.substr(('.day').length);
       var titleHtml = '<dt>'
           + '<div class="paragraph-title">'
             + '<div class="form-group title-note">'
@@ -110,23 +111,22 @@ $(document).ready(function() {
           + '</div>'
         '</dt>';
       $(titleHtml).appendTo($(targetLi).find('dl')).find('.edit-btn').click();
-      // $(targetLi).find('.edit-btn').click();
     } else if(role == 'text') {
       var paragraphConLen = $(targetLi).find('.paragraph-con').length;
       var textNum = paragraphConLen ? paragraphConLen : 0;
       var textHtml = '<dd>'
           + '<div class="paragraph clearfix">'
             + '<div class="form-group editor-panel paragraph-inner">'
-              + '<textarea class="form-control paragraph-con' + paragraphConLen + '" rows="5" placeholder="请添加游记文字"></textarea>'
+              + '<textarea class="form-control paragraph-con paragraph-con' + dayNum + '-' + paragraphConLen + '" rows="5" placeholder="请添加游记文字"></textarea>'
               + '<div class="mask-panel">'
                 + '<div class="show-data">'
                   + '<span class="paragraph-main">'
-                    + '<a href="#" class="glyphicon glyphicon-pencil edit-btn" data-target=".paragraph-con' + paragraphConLen + '"></a>'
+                    + '<a href="#" class="glyphicon glyphicon-pencil edit-btn" data-target=".paragraph-con' + dayNum + '-' + paragraphConLen + '"></a>'
                   + '</span>'
                 + '</div>'
               + '</div>'
               + '<div class="btn-groups clearfix">'
-                + '<div class="qq-face">'
+                + '<div class="qq-face" data-target=".paragraph-con' + dayNum + '-' + paragraphConLen + '">'
                   + '<a href="#" class="face-icon">'
                   + '</a>'
                   + '<div id="popFace" class="pop pop01 pop-bottom fn-hide">'
@@ -137,16 +137,22 @@ $(document).ready(function() {
                     + '</div>'
                   + '</div>'
                 + '</div>'
-                + '<a href="#" class="form-btn">完成</a>'
+                + '<a href="#" class="form-btn" data-target=".paragraph-con' + dayNum + '-' + paragraphConLen + '">完成</a>'
               + '</div>'
             + '</div>'
           + '</div>'
         + '</dd>';
       $(textHtml).appendTo($(targetLi).find('dl')).find('.edit-btn').click();
-      // $(targetLi).find('.edit-btn').click();
     } else if(role == 'image') {
 
     }
+  });
+
+  // 添加文字-完成
+  $('body').on('click', '.paragraph-inner.editing .form-btn', function(e) {
+    e.preventDefault();
+    $(this).prev().removeClass('facing');
+    $($(this).data('target')).blur();
   });
 
   // 表情包
@@ -155,6 +161,27 @@ $(document).ready(function() {
     e.stopPropagation();
     $(this).toggleClass('on').closest('.form-control').focus();
   });
+
+  // 选择表情
+  $('body').on('click', '.js_face a', function() {
+    var targetTextarea = $(this).parents('.qq-face').data('target');
+    var textareaVal = $(targetTextarea).val();
+    textareaVal ? $(targetTextarea).val($(targetTextarea).val() + $(this).attr('title')) : $(targetTextarea).val($(this).attr('title'));
+    // $(targetTextarea).val($(targetTextarea).val() + $(this).attr('title'));
+    // var strFace = $(this).attr("title");
+    // strFace = '[' + strFace + ']';
+    // var _c = $('div.js_main_box');
+    // var $currentTextarea = _c.find(".js_textarea[data-flag]");
+    // if ($currentTextarea.size() == 0)
+    //   $currentTextarea = _c.find(".js_textarea:last");
+    // if ($currentTextarea.val() == $currentTextarea.data("placeholder")) {
+    //   $currentTextarea.val("");
+    // }
+    // $('#popFace').addClass('fn-hide');
+    // insertText($currentTextarea.get(0), strFace);
+    // $currentTextarea.addClass("form-textarea-visited");
+  });
+
 
   // 添加一天
   $('.add-day').click(function(e) {
