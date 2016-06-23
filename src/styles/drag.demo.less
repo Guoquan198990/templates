@@ -1,0 +1,104 @@
+.drag-main {
+  position: fixed;
+  width: 188px;
+  padding: 20px;
+  border: 1px solid #ebebeb;
+  top: 50%;
+  .translate(0, -50%);
+  right: 0;
+  text-align: center;
+  a {
+    color: #1a8ced;
+  }
+  span {
+    font-size: 20px;
+    display: block;
+    & + span {
+      font-size: 16px;
+    }
+  }
+}
+
+.drag-article {
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  left: 0;
+  top: 0;
+  .transition(transform ease .5s);
+  .translate(100%, 0);
+  z-index: 100;
+  &.open {
+    .translate(0, 0);
+  }
+}
+
+.drag-side {
+  width: 200px;
+  text-align: right;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  font-size: 18px;
+  line-height: 40px;
+  .translate(0, -50%);
+  a {
+    display: block;
+    border-bottom: 1px solid #ccc;
+    padding: 0 30px;
+    color: #333;
+    &:hover, &.active {
+      color: #1a8ced;
+    }
+  }
+}
+.drag-con {
+  margin-left: 200px;
+  background-color: #ebebeb;
+  padding: 30px;
+  height: 100%;
+  .header {
+    p {
+      float: left;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .a-btns {
+      float: right;
+      a {
+        float: left;
+        line-height: 20px;
+      }
+    }
+  }
+}
+.gridly {
+  position: relative;
+}
+.brick.small {
+  width: 84px;
+  height: 84px;
+  border: 2px solid #666;
+  text-align: center;
+  position: relative;
+  background-color: #fff;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    .translate(-50%, -50%);
+  }
+  &:hover {
+    border-color: #f60;
+  }
+}
+.brick.large {
+  width: 300px;
+  height: 300px;
+}
+
+.hover-box {
+  display: none;
+}

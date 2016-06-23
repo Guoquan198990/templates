@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="../styles/gridly/jquery.gridly.css" />
   <link href="../public/components/air-datepicker/dist/css/datepicker.min.css" rel="stylesheet" />
   <link href="../public/components/select2/dist/css/select2.min.css" rel="stylesheet" />
+  <link href="../public/components/gridly/stylesheets/jquery.gridly.css" rel="stylesheet" />
   <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
   <link rel="stylesheet" type="text/css" href="../styles/css/base.css" />
   <!-- endbuild -->
@@ -114,6 +115,95 @@
   </div>
 </div>
 
+<div class="drag-main">
+  <a href="#">
+    <span>顺序编辑器</span> 
+    <span>点击进行图文排序</span> 
+    <i class="glyphicon glyphicon-menu-down"></i>
+  </a>
+</div>
+
+<div class="drag-article">
+  <div class="drag-side">
+    <a href="#" class="active">DAY1</a>
+    <a href="#">DAY2</a>
+    <a href="#">DAY3</a>
+    <a href="#">DAY4</a>
+  </div>
+  <div class="drag-con">
+    <div class="clearfix header">
+      <p>拖动图文模块，可以进行图文排序</p>
+      <div class="a-btns">
+        <a href="#" class="a-btn back-btn">返回</a>
+        <a href="#" class="a-btn">完成</a>
+      </div>
+    </div>
+    <div class="gridly">
+      <div class="brick small">
+        <img src="../images/drag_title.gif">
+        <div class="hover-box">
+          <p>aa</p>
+        </div>
+      </div>
+      <div class="brick small">
+        <img src="../images/drag_text.gif">
+        <div class="hover-box">
+          <p>aa</p>
+        </div>
+      </div>
+      <div class="brick small">
+        <img src="../images/drag_title.gif">
+        <div class="hover-box">
+          <p>aa</p>
+        </div>
+      </div>
+      <div class="brick small">
+        <img src="../images/drag_text.gif">
+        <div class="hover-box">
+          <p>aa</p>
+        </div>
+      </div>
+      <div class="brick small">
+        <img src="../images/drag_title.gif">
+        <div class="hover-box">
+          <p>aa</p>
+        </div>
+      </div>
+      <div class="brick small">
+        <img src="../images/drag_title.gif">
+        <div class="hover-box">
+          <p>aa</p>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="con-inner">
+      <div class="day-item">
+        <div class="item-panel">
+          <img src="../images/drag_title.gif">
+          <div class="hover-box">
+            <p>aa</p>
+          </div>
+        </div>
+        <div class="item-panel">
+          <img src="../images/drag_title.gif">
+          <div class="hover-box">
+            <p>aa</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-item">
+        <img src="../images/drag_text.gif" data-details="">
+      </div>
+      <div class="day-item">
+        <img src="../images/drag_text.gif" data-details="">
+      </div>
+      <div class="day-item">
+        <img src="../images/drag_text.gif" data-details="">
+      </div>
+    </div> -->
+  </div>
+</div>
+
 
 
 
@@ -136,7 +226,8 @@
 <script src="../public/components/air-datepicker/dist/js/i18n/datepicker.zh.js"></script>
 <!-- <script type="text/javascript" src="http://www.my97.net/dp/My97DatePicker/WdatePicker.js"></script> -->
 <!-- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
-<script type="text/javascript" src="../scripts/travel.index.js"></script>
+<script type="text/javascript" src="../gridly/javascripts/jquery.gridly.js"></script>
+<script type="text/javascript" src="../scripts/drag.demo.js"></script>
 <!-- <script type="text/javascript" src="../scripts/editor.js"></script> -->
 </body>
 </html>

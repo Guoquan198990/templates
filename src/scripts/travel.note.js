@@ -167,19 +167,6 @@ $(document).ready(function() {
     var targetTextarea = $(this).parents('.qq-face').data('target');
     var textareaVal = $(targetTextarea).val();
     textareaVal ? $(targetTextarea).val($(targetTextarea).val() + $(this).attr('title')) : $(targetTextarea).val($(this).attr('title'));
-    // $(targetTextarea).val($(targetTextarea).val() + $(this).attr('title'));
-    // var strFace = $(this).attr("title");
-    // strFace = '[' + strFace + ']';
-    // var _c = $('div.js_main_box');
-    // var $currentTextarea = _c.find(".js_textarea[data-flag]");
-    // if ($currentTextarea.size() == 0)
-    //   $currentTextarea = _c.find(".js_textarea:last");
-    // if ($currentTextarea.val() == $currentTextarea.data("placeholder")) {
-    //   $currentTextarea.val("");
-    // }
-    // $('#popFace').addClass('fn-hide');
-    // insertText($currentTextarea.get(0), strFace);
-    // $currentTextarea.addClass("form-textarea-visited");
   });
 
 

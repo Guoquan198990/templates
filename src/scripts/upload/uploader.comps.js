@@ -4,6 +4,7 @@ $('body').on('click', '.close-modal', function(e) {
 });
 
 function modalShow(template, customizeClass, shownFn, hideFn) {
+  $('.customize-modal').find('.modal-body').empty();
   $(template).appendTo($('.modal-body'));
   $('.customize-modal').addClass(customizeClass).modal('show')
   .on('shown.bs.modal', function() {
@@ -38,8 +39,14 @@ function uploadFile(fn) {
         + '<div class="progress-bar progress-bar-success progress-bar-striped">'
         + '</div>'
       + '</div>';
+  var uploadImgTypeError = '<div class="error-panel error-upload-fail">'
+        + '<img src="../images/interrobang.png" alt=""/>'
+        + '<p>您上传的格式不正确！</p>'
+        + '<p>只能上传 ' + TRAVEL_CONFIG.UPLOAD_IMG_TYPE + ' 格式的文件！</p>'
+      + '</div>';
+
   $('.input-upload input').fileupload({
-    url: '/',
+    url: 'http://10.168.99.140:8080/upload/uploadpic.do',
     sequentialUploads: true,
     xhrFields: {
         withCredentials: true
@@ -51,6 +58,14 @@ function uploadFile(fn) {
     reader.readAsDataURL(data.files[0]);
     reader.data = data;
     reader.file = data.files[0];
+    // 再次验证上传图片的后缀名
+    var imgUrl = reader.file.name.split('.');
+    var extensions = imgUrl[imgUrl.length - 1];
+    if(TRAVEL_CONFIG.UPLOAD_IMG_TYPE.indexOf(extensions) === -1) {
+      modalShow(uploadImgTypeError, 'error-modal');
+      uploadStatus.abort();
+      return false;
+    }
     reader.onload = function(_file) {
       var image = new Image();
       image.src = _file.target.result;              
@@ -60,16 +75,14 @@ function uploadFile(fn) {
         var w = this.width,
             h = this.height,
             n = this.file.name;
-        if ( w < 990 || h < 330) {
+        if ( w < 9090 || h < 330) {
             modalShow(sizeSmallError, 'error-modal');
             uploadStatus.abort();
-            return false;
         }
 
         if(parseFloat(image.file.size / 1024).toFixed(2) > (20 * 1024) || w > 9999 || h > 9999) {
           modalShow(sizeLargeError, 'error-modal');
           uploadStatus.abort();
-          return false;
         }
       }
     }
@@ -86,11 +99,9 @@ function uploadFile(fn) {
       $('.input-upload input').val('');
     }, 500);
   }).bind('fileuploadfail', function(e, data) {
-    alert(0);
-    // $('.upload-progress-modal').modal('hide');
-    // setTimeout(function() {
-    //   modalShow(uploadFail, 'error-modal');
-    // }, 500);
+    setTimeout(function() {
+      modalShow(uploadFail, 'error-modal');
+    }, 2000);
   });
 }
 

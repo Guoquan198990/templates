@@ -7127,6 +7127,9 @@ textarea.tag-input {
 .customize-modal.in .modal-dialog {
   transform: translate(-50%, -50%);
 }
+.customize-modal.form-error-modal p {
+  text-align: center;
+}
 .customize-modal .modal-content {
   padding: 30px 60px;
   width: auto;
@@ -7460,22 +7463,6 @@ textarea.tag-input {
   line-height: 38px;
   font-weight: normal;
 }
-.edit-note-form .edit-add-tags {
-  padding: 24px 0 50px;
-  margin: 0;
-}
-.edit-note-form .tags-box {
-  font-size: 14px;
-  line-height: 20px;
-  float: left;
-}
-.edit-note-form .tags-box span {
-  margin-right: 10px;
-  color: #9bbeff;
-}
-.edit-note-form .add-tags {
-  margin: 0;
-}
 .edit-note-form label {
   font-size: 16px;
   font-weight: normal;
@@ -7643,6 +7630,22 @@ textarea.tag-input {
   line-height: 30px;
   padding: 0 10px;
   margin-left: 3px;
+}
+.edit-add-tags {
+  padding: 24px 0 50px;
+  margin: 0;
+}
+.tags-box {
+  font-size: 14px;
+  line-height: 20px;
+  float: left;
+}
+.tags-box span {
+  margin-right: 10px;
+  color: #9bbeff;
+}
+.add-tags {
+  margin: 0;
 }
 .menu-box {
   float: right;
@@ -7926,4 +7929,121 @@ textarea.tag-input {
   top: -8px;
   left: 40px;
   background-position: 0 -26px;
+}
+.drag-main {
+  position: fixed;
+  width: 188px;
+  padding: 20px;
+  border: 1px solid #ebebeb;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  right: 0;
+  text-align: center;
+}
+.drag-main a {
+  color: #1a8ced;
+}
+.drag-main span {
+  font-size: 20px;
+  display: block;
+}
+.drag-main span + span {
+  font-size: 16px;
+}
+.drag-article {
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  left: 0;
+  top: 0;
+  -webkit-transition: transform ease 0.5s;
+  -o-transition: transform ease 0.5s;
+  transition: transform ease 0.5s;
+  -webkit-transform: translate(100%, 0);
+  -ms-transform: translate(100%, 0);
+  -o-transform: translate(100%, 0);
+  transform: translate(100%, 0);
+  z-index: 100;
+}
+.drag-article.open {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.drag-side {
+  width: 200px;
+  text-align: right;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  font-size: 18px;
+  line-height: 40px;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+.drag-side a {
+  display: block;
+  border-bottom: 1px solid #ccc;
+  padding: 0 30px;
+  color: #333;
+}
+.drag-side a:hover,
+.drag-side a.active {
+  color: #1a8ced;
+}
+.drag-con {
+  margin-left: 200px;
+  background-color: #ebebeb;
+  padding: 30px;
+  height: 100%;
+}
+.drag-con .header p {
+  float: left;
+  font-size: 14px;
+  line-height: 20px;
+}
+.drag-con .header .a-btns {
+  float: right;
+}
+.drag-con .header .a-btns a {
+  float: left;
+  line-height: 20px;
+}
+.gridly {
+  position: relative;
+}
+.brick.small {
+  width: 84px;
+  height: 84px;
+  border: 2px solid #666;
+  text-align: center;
+  position: relative;
+  background-color: #fff;
+}
+.brick.small img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.brick.small:hover {
+  border-color: #f60;
+}
+.brick.large {
+  width: 300px;
+  height: 300px;
+}
+.hover-box {
+  display: none;
 }

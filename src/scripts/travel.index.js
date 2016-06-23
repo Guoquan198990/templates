@@ -1,12 +1,12 @@
 $(document).ready(function() {
   // 游记标题字数计算
   // $('.note-title').keyup(function() {
-  //   $(this).next('.total-words').find('i').html($(this).val().length);
-  // });
-  // $('body').on('keyup', '.note-title', function() {
   //   debugger
   //   $(this).next('.total-words').find('i').html($(this).val().length);
   // });
+  $('body').on('keyup', '.note-title', function() {
+    $(this).next('.total-words').find('i').html($(this).val().length);
+  });
 
   // 添加标签
   // var tagsAddTotal = [];
@@ -150,6 +150,7 @@ $(document).ready(function() {
       if(removeBtn[index]) {
         addClass('tag-padding-btn', tag);
         tag.setAttribute('data-tag', item);
+        tag.setAttribute('data-code', 10000);
         tag.innerHTML += '<span class="remove-tag"> &times;</span>';
       }
       return tag;
@@ -172,24 +173,11 @@ $(document).ready(function() {
             setTimeout(function() {
               removeClass('exist', tag);
             }, 150);
-            // if(whichTransitionEnd()) {
-            //   tag.oneEventListener(whichTransitionEnd(), function() {
-            //     removeClass('exist', this);
-            //   });
-            // }
-            // else {
-            //   setTimeout(function() {
-            //     removeClass('exist', tag);
-            //   }, 150);
-            // }
-
           }
-
         });
 
         return tagsInput.value = '';
       }
-
       var tag = createTag(val, index);
       tagsInput.parentNode.appendChild(tag, tagsInput);
       tagsArray[index].push(val);
@@ -301,20 +289,22 @@ $(document).ready(function() {
 
     function recommentTags() {
       $('.customize-checkbox input').change(function() {
-        $(this).toggleClass('checked');
-        if($(this).is(':checked')) {
-          var val = $(this).val();
+        var _curTarget = $(this);
+        _curTarget.toggleClass('checked');
+        if(_curTarget.is(':checked')) {
+          var val = _curTarget.val();
+          var tagsCode = _curTarget.data('code');
           if($.inArray(val, tagsArray[0]) != -1) return;
-          var tagsTemplate = '<div class="tag tag-padding-btn" data-tag="' + val + '">' + val + '<span class="remove-tag"> ×</span></div>'
+          var tagsTemplate = '<div class="tag tag-padding-btn" data-tag="' + val + '" data-code="' + tagsCode + '">' + val + '<span class="remove-tag"> ×</span></div>'
           $('.tags-container').append(tagsTemplate);
           tagsArray[0].push(val);
           judgeTagsNum();
         } else {
           resetInput();
-          var targetItem = $(this).next().html();
+          var targetItem = _curTarget.next().html();
           $('.tag-padding-btn').each(function() {
-            if($(this).data('tag') === targetItem) {
-              $(this).remove();
+            if(_curTarget.data('tag') === targetItem) {
+              _curTarget.remove();
             }
           });
           $.each(tagsArray[0], function(i, val) {
@@ -340,6 +330,13 @@ $(document).ready(function() {
   function addTagsModal(modalShowFn, modalHideFn) {
     $('body').on('click', '.btn-add-tags', function(e) {
       e.preventDefault();
+      var recommentTagsHtml = '';
+      $.each(TRAVEL_CONFIG.TAGS, function(i, val) {
+        recommentTagsHtml += '<label class="checkbox-inline">'
+              + '<input type="checkbox" value="' + val.text + '" data-code="' + val.code + '">'
+              + '<span>' + val.text + '</span>'
+            + '</label>';
+      });
       var addTagsModal = '<form action="">'
           + '<div class="form-group">'
             + '<label for="add-tags-input">标签 <span>(最多4个标签，每个标签最多7个字)</span></label>'
@@ -347,50 +344,7 @@ $(document).ready(function() {
           + '</div>'
           + '<div class="form-group customize-checkbox">'
             + '<span>常用标签：</span>'
-            + '<label class="checkbox-inline">'
-              + '<input type="checkbox" value="周边游">'
-              + '<span>周边游</span>'
-            + '</label>'
-            + '<label class="checkbox-inline">'
-              + '<input type="checkbox" value="摄影">' 
-              + '<span>摄影</span>'
-            + '</label>'
-            + '<label class="checkbox-inline">'
-              + '<input type="checkbox" value="潜水">' 
-              + '<span>潜水</span>'
-            + '</label>'
-            + '<label class="checkbox-inline">'
-              + '<input type="checkbox" value="露营">' 
-              + '<span>露营</span>'
-            + '</label>'
-            + '<label class="checkbox-inline">'
-              + '<input type="checkbox" value="海岛">' 
-              + '<span>海岛</span>'
-            + '</label>'
-            + '<label class="checkbox-inline">'
-              + '<input type="checkbox" value="自驾游">' 
-              + '<span>自驾游</span>'
-            + '</label>'
-            + '<label class="checkbox-inline">'
-              + '<input type="checkbox" value="购物">' 
-              + '<span>购物</span>'
-            + '</label>'
-            + '<label class="checkbox-inline">'
-              + '<input type="checkbox" value="户外">' 
-              + '<span>户外</span>'
-            + '</label>'
-            + '<label class="checkbox-inline">'
-              + '<input type="checkbox" value="免签">' 
-              + '<span>免签</span>'
-            + '</label>'
-            + '<label class="checkbox-inline">'
-              + '<input type="checkbox" value="民俗文化">' 
-              + '<span>民俗文化</span>'
-            + '</label>'
-            + '<label class="checkbox-inline">'
-              + '<input type="checkbox" value="自然风貌">' 
-              + '<span>自然风貌</span>'
-            + '</label>'
+            + recommentTagsHtml
           + '</div>'
           + '<a href="#" class="form-btn add-tags-completed">完成</a>'
         + '</form>';
@@ -418,7 +372,8 @@ $(document).ready(function() {
       var tagComplete = [];
       $('.tag-padding-btn').each(function() {
         var _tag = $(this).data('tag');
-        tagsHtml += '<span>' + _tag + '</span>';
+        var tagsCode = $(this).data('code');
+        tagsHtml += '<span data-code="' + tagsCode + '" data-tag="' + _tag + '">' + _tag + '</span>';
         tagComplete.push(_tag);
       });
       obj.data('value', tagComplete.join(',')).parent().prev().html(tagsHtml);
@@ -445,39 +400,173 @@ $(document).ready(function() {
   });
 
   
+  var setOffArea = {
+    "message": "查询成功",
+    "result": {
+      "result": [
+        {
+          "city": "北京市",
+          "cityid": "",
+          "distinct": "东城区",
+          "location": "39.915124,116.404033",
+          "name": "天安门",
+          "uid": "65e1ee886c885190f60e77ff"
+        },
+        {
+          "city": "北京市",
+          "cityid": "",
+          "distinct": "东城区",
+          "location": "39.912594,116.404043",
+          "name": "天安门广场",
+          "uid": "c9b5fb91d49345bc5d0d0262"
+        },
+        {
+          "city": "北京市",
+          "cityid": "",
+          "distinct": "东城区",
+          "location": "39.91408,116.407851",
+          "name": "天安门东-地铁站",
+          "uid": "940aeb3c98d5a0218a2fb5de"
+        },
+        {
+          "city": "北京市",
+          "cityid": "",
+          "distinct": "东城区",
+          "location": "39.913279,116.40393",
+          "name": "天安门广场-国旗",
+          "uid": "4ae2adcf574bcd2b38221c66"
+        },
+        {
+          "city": "北京市",
+          "cityid": "",
+          "distinct": "东城区",
+          "location": "39.907253,116.405886",
+          "name": "天安门广场-入口",
+          "uid": "9711b16c49ec39e78605bfb4"
+        },
+        {
+          "city": "北京市",
+          "cityid": "",
+          "distinct": "东城区",
+          "location": "39.924455,116.403438",
+          "name": "故宫博物院",
+          "uid": "06d2dffda107b0ef89f15db6"
+        },
+        {
+          "city": "北京市",
+          "cityid": "",
+          "distinct": "东城区",
+          "location": "39.917956,116.409734",
+          "name": "汉庭酒店(北京天安门店)",
+          "uid": "14c29dfa2b61be2959bbbc7b"
+        },
+        {
+          "city": "北京市",
+          "cityid": "",
+          "distinct": "东城区",
+          "location": "39.905041,116.408372",
+          "name": "锦江之星酒店(北京前门店)",
+          "uid": "cde9e2c7aa24b6ade81e9738"
+        },
+        {
+          "city": "北京市",
+          "cityid": "",
+          "distinct": "西城区",
+          "location": "39.902355,116.40266",
+          "name": "海友酒店(北京前门店)",
+          "uid": "89fd4ea323f40d5ee4e965f6"
+        },
+        {
+          "city": "北京市",
+          "cityid": "",
+          "distinct": "西城区",
+          "location": "39.899197,116.404052",
+          "name": "速8酒店(北京前门店)",
+          "uid": "0fe97227b9d4e766902ca357"
+        }
+      ]
+    }
+  }
 
-  var availableTags = [
-    "ActionScript",
-    "AppleScript",
-    "Asp",
-    "BASIC",
-    'AAA',
-    'abs',
-    "C",
-    "C++",
-    "Clojure",
-    "COBOL",
-    "ColdFusion",
-    "Erlang",
-    "Fortran",
-    "Groovy",
-    "Haskell",
-    "Java",
-    "JavaScript",
-    "Lisp",
-    "Perl",
-    "PHP",
-    "Python",
-    "Ruby",
-    "Scala",
-    "Scheme"
-  ];
+  var availableTags = [];
+  $.each(setOffArea.result.result, function(i, val) {
+    availableTags.push(val.city + val.distinct + val.name);
+  });
+  // var availableTags = [
+  //   "ActionScript",
+  //   "AppleScript",
+  //   "Asp",
+  //   "BASIC",
+  //   'AAA',
+  //   'abs',
+  //   "C",
+  //   "C++",
+  //   "Clojure",
+  //   "COBOL",
+  //   "ColdFusion",
+  //   "Erlang",
+  //   "Fortran",
+  //   "Groovy",
+  //   "Haskell",
+  //   "Java",
+  //   "JavaScript",
+  //   "Lisp",
+  //   "Perl",
+  //   "PHP",
+  //   "Python",
+  //   "Ruby",
+  //   "Scala",
+  //   "Scheme"
+  // ];
 
   // 出发地
-  $( "#address" ).autocomplete({
-    source: availableTags.splice(0, 5)
-  });
-
+  var cache = {};
+  $('#address').autocomplete({
+    // ajax请求
+    // source: function(request, response ) {
+    //   var term = request.term;
+    //   if ( term in cache ) {
+    //     response( $.map( cache[ term ], function( item ) {
+    //       return {
+    //         city: item.city,
+    //         cityid: item.cityid,
+    //         distinct: item.distinct,
+    //         location: item.location,
+    //         name: item.name,
+    //         uid: item.uid
+    //       }
+    //     }));
+    //     return;
+    //   }
+    //   $.ajax({
+    //     url: 'http://10.169.48.47:8080/commonexternal/getsuggestplace.do',
+    //     dataType: "json",
+    //     data:{
+    //       query: request.term
+    //     },
+    //     success: function( data ) {
+    //       cache[ term ] = data;
+    //       response( $.map( data, function( item ) {
+    //           return {
+    //             city: item.city,
+    //             cityid: item.cityid,
+    //             distinct: item.distinct,
+    //             location: item.location,
+    //             name: item.name,
+    //             uid: item.uid
+    //           }
+    //       }));
+    //     }
+    //   });
+    // },
+    // 固定数据
+    source: availableTags,
+    minLength: 1,
+    max: 5,
+    formatItem: function(item) {
+      return item.city + item.distinct + item.name;
+    }
+  })
   // 设置封面
   uploadFile();
   
@@ -496,7 +585,63 @@ $(document).ready(function() {
     $('#popFace').addClass('fn-hide');
     insertText($currentTextarea.get(0), strFace);
     $currentTextarea.addClass("form-textarea-visited");
-
   });
 
+
+
+  // 点击下一步
+  $('.next-step').click(function(e) {
+    e.preventDefault();
+    var jsonData = {
+      id: 0,
+      createType: 'pc',
+      userId: 28188388,
+      userName: 'Guoquan_sky',
+      userPic: 'http://x.autoimg.cn/space/images/head_120X120.gif', 
+      coverInfo: {}
+    };
+    var formError = [];
+    $('.required').each(function() {
+      var _this = $(this);
+      var formName = _this.attr('name');
+      var formVal = _this.val();
+      var errorMes = _this.data('error');
+      if(!formVal) {
+        formError.push(errorMes);
+        if(formError.length === 1) {
+          _this.addClass('error-focus');
+        }
+      }
+      if(!formError.length) {
+        jsonData.coverInfo[formName] = formVal;
+      }
+    });
+    // 标签
+    var tagsItem = $('.tags-box').children();
+    var tagsData = {};
+    if(tagsItem.length) {
+      jsonData.tagdict = [];
+      $.each(tagsItem, function() {
+        var _this = $(this);
+        tagsData = {
+          code: _this.data('code'),
+          text: _this.data('tag')
+        }
+        jsonData.tagdict.push(tagsData);
+      });
+    }
+    if(formError.length) {
+      var modalFormError = '<p>' + '请正确输入' + formError.join('、') + '！' + '</p>'
+      modalShow(modalFormError, 'form-error-modal', function() {
+      }, function() {
+        $('.error-focus').focus();
+      });
+    } else {
+      if(window.sessionStorage) {
+        sessionStorage.setItem('jsonData', JSON.stringify(jsonData));
+        window.location.href = '/templates/travel.note.html'
+      }
+    }
+    
+  });
 });
