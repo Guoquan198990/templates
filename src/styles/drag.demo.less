@@ -85,6 +85,8 @@
   position: relative;
   background-color: #fff;
   img {
+    max-width: 100%;
+    max-height: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -92,6 +94,9 @@
   }
   &:hover {
     border-color: #f60;
+    .hover-box {
+      display: block;
+    }
   }
 }
 .brick.large {
@@ -101,4 +106,35 @@
 
 .hover-box {
   display: none;
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  left: -2px;
+  border-radius: 2px;
+  top: 96px;
+  left: -2px;
+  background-color: #fff;
+  text-align: left;
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    border: 8px solid transparent;
+    z-index: 5;
+    left: 10px;
+  }
+  &:before {
+    border-bottom-color: #ccc;
+    top: -16px;
+  }
+
+  &:after {
+    border-bottom-color: #fff;
+    top: -15px;
+  }
+  .details-con {
+    overflow: hidden;
+    height: 100%;
+  }
 }

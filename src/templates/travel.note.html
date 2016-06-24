@@ -33,7 +33,7 @@
       <div class="input-upload">
         <a href="#" class="customize-upload">
           <span>设置封面</span>
-          <input id="fileupload" type="file" name="files[]" />
+          <input id="fileupload" type="file" name="files[]"  accept=".jpg,.png,.bmp,jpeg"/>
         </a>
       </div>
     </div>
@@ -42,7 +42,7 @@
         <div class="edit-note-form">
           <div class="form-group title-note">
             <div class="title-panel clearfix">
-              <div class="editor-panel">
+              <div class="editor-panel cover-title">
                 <input type="text" class="form-control comps-title note-title" value="枫影婆娑-加拿大秋季记事" maxlength="18" />
                 <span class="total-words"><i>0</i>/18</span>
                 <div class="mask-panel">
@@ -56,12 +56,11 @@
               </div>
             </div>
           </div>
-          <div class="form-group edit-add-tags clearfix">
+          <div class="form-group edit-add-tags clearfix cover-tagdict">
             <div class="tags-box">
-              <span>免签</span><span>摄影</span>
             </div>
             <div class="add-tags">
-              <a href="javascript:;" class="btn-add-tags" data-value="免签,摄影">添加标签</a>
+              <a href="javascript:;" class="btn-add-tags" data-value="">添加标签</a>
             </div>
           </div>
           <div class="clearfix form-inline base-info">
@@ -69,13 +68,13 @@
               <label>出行时间：</label>
               <span class="datepicker-panel">
                 <b>2016-06-12</b>
-                <input type="text" class="form-control datepicker-options" data-language='zh' />
+                <input type="text" class="form-control datepicker-options cover-startTime" data-language='zh' />
                 <i class="glyphicon glyphicon-menu-down"></i>
               </span>
             </div>
             <div class="form-group">
               <label>出发地：</label>
-              <div class="editor-panel">
+              <div class="editor-panel cover-destination">
                 <input type="text" class="form-control address-input" id="address" value="中航广场" />
                 <div class="mask-panel">
                   <div class="show-data">
@@ -88,7 +87,7 @@
               <label>人均费用：</label>
               <div class="editor-panel travel-cost-box">
                 <b>500以下</b>
-                <select class="form-control travel-cost">
+                <select class="form-control travel-cost cover-percost">
                   <option>500以下</option>
                   <option>500—999</option>
                   <option>1000—2999</option>
@@ -105,7 +104,19 @@
           <div class="form-group timeline-note">
             <ul>
               <li class="day1">
-                <span class="day-num">DAY1</span>
+                <div class="day-tools">
+                  <span class="day-num">DAY1</span>
+                  <div class="remove-tips-box">
+                    <a href="#" class="glyphicon glyphicon-remove-sign"></a>
+                    <div class="tips">
+                      <div class="tips-inner">
+                        <p>是否删除该天的游记内容？</p>
+                        <a href="#">是</a>
+                        <a href="#">否</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="write-tools">
                   <a href="#" data-role="title" data-day=".day1">
                     <i></i>
@@ -140,6 +151,15 @@
       </div>
     </div>
   </form>
+</div>
+<div class="travel-footer">
+  <div class="wrapper">
+    <div class="clearfix">
+      <a href="#" class="a-btn">保存草稿</a>
+      <a href="#" class="a-btn">预览</a>
+      <a href="#" class="a-btn">发表游记</a>
+    </div>
+  </div>
 </div>
 
 <!-- 当前编辑页弹窗 -->

@@ -1,4 +1,35 @@
 $(document).ready(function() {
+  // 渲染封面的配置
+  var coverConfig = JSON.parse(sessionStorage.getItem("jsonData"));
+  console.log(coverConfig);
+  // 输出文章标题
+  $('.cover-title input').val(coverConfig.coverInfo.title);
+  $('.cover-title .show-data span').html(coverConfig.coverInfo.title + '<a href="#" class="glyphicon glyphicon-pencil edit-btn" data-target=".note-title"></a>');
+  $('.cover-title .total-words i').text(coverConfig.coverInfo.title.length);
+
+  // 输出标签
+  var tagdict = [];
+  var coverTagsHtml = '';
+  $.each(coverConfig.coverInfo.tagdict, function(i, val) {
+    coverTagsHtml += '<span data-code="' + val.code + '" data-tag="' + val.text + '">' + val.text + '</span>';
+    tagdict.push(val.text);
+  });
+  tagdict = tagdict.join(',');
+  $('.cover-tagdict .tags-box').html(coverTagsHtml);
+  $('.cover-tagdict .btn-add-tags').data('value', tagdict);
+
+  // 出行时间
+  $('.cover-startTime').val(coverConfig.coverInfo.startTime);
+
+  // 出发地
+  $('.cover-destination input').val(coverConfig.coverInfo.destination);
+  $('.cover-destination .address-span').val(coverConfig.coverInfo.destination);
+
+  // 人均费用
+  $('.cover-percost').val(coverConfig.coverInfo.perCost);
+
+
+
   // 编辑按钮
   $('body').on('click', '.edit-btn', function(e) {
     e.preventDefault();
@@ -175,7 +206,10 @@ $(document).ready(function() {
     e.preventDefault();
     var curDayNum = $('.timeline-note > ul').children().length + 1;
     var addDayHtml = '<li class="day' + curDayNum + '">'
-        + '<span class="day-num">DAY' + curDayNum + '</span>'
+        + '<div class="day-tools">'
+          + '<span class="day-num">DAY' + curDayNum + '</span>'
+            + '<a href="#" class="glyphicon glyphicon-remove-sign"></a>'
+              + '</div>'
         + '<div class="write-tools">'
           + '<a href="#" data-role="title" data-day=".day' + curDayNum + '">'
             + '<i></i>'

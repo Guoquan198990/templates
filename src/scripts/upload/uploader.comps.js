@@ -75,14 +75,16 @@ function uploadFile(fn) {
         var w = this.width,
             h = this.height,
             n = this.file.name;
-        if ( w < 9090 || h < 330) {
+        if ( w < 990 || h < 330) {
             modalShow(sizeSmallError, 'error-modal');
             uploadStatus.abort();
+            return false;
         }
 
         if(parseFloat(image.file.size / 1024).toFixed(2) > (20 * 1024) || w > 9999 || h > 9999) {
           modalShow(sizeLargeError, 'error-modal');
           uploadStatus.abort();
+          return false;
         }
       }
     }
@@ -97,11 +99,11 @@ function uploadFile(fn) {
     setTimeout(function() {
       cropImage(image.src);
       $('.input-upload input').val('');
-    }, 500);
+    }, 1000);
   }).bind('fileuploadfail', function(e, data) {
     setTimeout(function() {
       modalShow(uploadFail, 'error-modal');
-    }, 2000);
+    }, 1000);
   });
 }
 
@@ -109,13 +111,13 @@ function tooltips() {
   $('[data-toggle="tooltip"]').tooltip();
 }
 
-function isImageFile(file) {
-  if (file.type) {
-    return /^image\/\w+$/.test(file.type);
-  } else {
-    return /\.(jpg|jpeg|png|gif)$/.test(file);
-  }
-}
+// function isImageFile(file) {
+//   if (file.type) {
+//     return /^image\/\w+$/.test(file.type);
+//   } else {
+//     return /\.(jpg|jpeg|png|gif)$/.test(file);
+//   }
+// }
 
 function cropImage(src) {
   var cropHtml = '<div class="avatar-body">'

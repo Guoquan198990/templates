@@ -7586,7 +7586,7 @@ textarea.tag-input {
   padding-left: 70px;
   min-height: 100px;
 }
-.timeline-note .day-num {
+.timeline-note .day-tools {
   position: absolute;
   font-size: 26px;
   line-height: 34px;
@@ -7595,6 +7595,70 @@ textarea.tag-input {
   width: 90px;
   left: -45px;
   text-align: center;
+}
+.timeline-note .day-tools .remove-tips-box {
+  position: absolute;
+  font-size: 14px;
+  color: #999;
+  top: 50%;
+  right: -10px;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+.timeline-note .day-tools .remove-tips-box > a {
+  color: #999;
+}
+.timeline-note .day-tools .tips {
+  position: absolute;
+  width: 160px;
+  height: 110px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #111;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  top: -115px;
+  left: -74px;
+  display: none;
+}
+.timeline-note .day-tools .tips:before,
+.timeline-note .day-tools .tips:after {
+  content: "";
+  position: absolute;
+  border: 8px solid transparent;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+.timeline-note .day-tools .tips:before {
+  bottom: -16px;
+  border-top-color: #ccc;
+}
+.timeline-note .day-tools .tips:after {
+  bottom: -15px;
+  border-top-color: #fff;
+}
+.timeline-note .day-tools .tips a {
+  width: 50px;
+  color: #7a6c61;
+  display: inline-block;
+  border: 1px solid #ccc;
+}
+.timeline-note .day-tools .tips a:hover {
+  color: #fff;
+  background-color: #f9423a;
+  border-color: #f9423a;
+}
+.timeline-note .day-tools .tips-inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+.timeline-note .day-tools.active .tips {
+  display: table;
 }
 .timeline-note dl {
   margin: 0;
@@ -7719,6 +7783,24 @@ textarea.tag-input {
   border: 9px solid transparent;
   border-left-color: #f1752b;
   right: -18px;
+}
+.travel-footer {
+  border-top: 1px solid #ccc;
+  padding: 30px 0;
+  text-align: right;
+}
+.travel-footer a {
+  line-height: 34px;
+  border: 1px solid #1a8ced;
+  display: inline-block;
+  width: 110px;
+  text-align: center;
+  padding: 0;
+  font-size: 16px;
+}
+.travel-footer a:not(:last-child) {
+  background-color: #fff;
+  color: #1a8ced;
 }
 .select2-container--open .select2-dropdown--above {
   border-bottom: 1px solid #1a8ced;
@@ -8029,6 +8111,8 @@ textarea.tag-input {
   background-color: #fff;
 }
 .brick.small img {
+  max-width: 100%;
+  max-height: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -8040,10 +8124,43 @@ textarea.tag-input {
 .brick.small:hover {
   border-color: #f60;
 }
+.brick.small:hover .hover-box {
+  display: block;
+}
 .brick.large {
   width: 300px;
   height: 300px;
 }
 .hover-box {
   display: none;
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  top: 96px;
+  left: -2px;
+  background-color: #fff;
+  text-align: left;
+}
+.hover-box:before,
+.hover-box:after {
+  content: "";
+  position: absolute;
+  border: 8px solid transparent;
+  z-index: 5;
+  left: 10px;
+}
+.hover-box:before {
+  border-bottom-color: #ccc;
+  top: -16px;
+}
+.hover-box:after {
+  border-bottom-color: #fff;
+  top: -15px;
+}
+.hover-box .details-con {
+  overflow: hidden;
+  height: 100%;
 }

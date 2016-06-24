@@ -522,6 +522,20 @@ $(document).ready(function() {
   // 出发地
   var cache = {};
   $('#address').autocomplete({
+    // source: function(request, response) {
+    //   var term = request.term;
+    //   $.ajax({
+    //     type:"GET",
+    //     dataType : "jsonp",//数据类型为jsonp
+    //     jsonpCallback:"postsList",
+    //     url:'http://10.169.48.69:8080/commonexternal/getsuggestplace.do?query=' + term,
+    //     async: true,
+    //     data:{"_callback":"postsList"},
+    //     success:function(data){
+    //       console.log(data);
+    //     }
+    //   });
+    // },
     // ajax请求
     // source: function(request, response ) {
     //   var term = request.term;
@@ -620,14 +634,14 @@ $(document).ready(function() {
     var tagsItem = $('.tags-box').children();
     var tagsData = {};
     if(tagsItem.length) {
-      jsonData.tagdict = [];
+      jsonData.coverInfo.tagdict = [];
       $.each(tagsItem, function() {
         var _this = $(this);
         tagsData = {
           code: _this.data('code'),
           text: _this.data('tag')
         }
-        jsonData.tagdict.push(tagsData);
+        jsonData.coverInfo.tagdict.push(tagsData);
       });
     }
     if(formError.length) {

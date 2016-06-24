@@ -13,6 +13,7 @@
   <link href="../public/components/select2/dist/css/select2.min.css" rel="stylesheet" />
   <link href="../public/components/gridly/stylesheets/jquery.gridly.css" rel="stylesheet" />
   <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+  <link rel="stylesheet" type="text/css" href="../styles/detail.css" />
   <link rel="stylesheet" type="text/css" href="../styles/css/base.css" />
   <!-- endbuild -->
 </head>
@@ -25,96 +26,119 @@
       <span>发表游记</span>
     </div>
   </div>
-  <form>
-    <div class="cover-container">
-      <div class="input-upload">
-        <a href="#" class="customize-upload">
-          <span>设置封面</span>
-          <input id="fileupload" type="file" name="files[]" accept=".jpg,.png,.bmp,jpeg" />
-        </a>
-      </div>
-    </div>
-    <div class="note-form">
-      <div class="form-inner">
-        <div class="title-note">
-          <div class="form-group">
-            <label for="note-title">为您的游记写一个独一无二的标题</label>
-            <div class="form-controls">
-              <i class="required-icon">*</i>
-              <input type="text" class="form-control note-title required" maxlength="18" placeholder="最多输入18个文字" name="title" data-error="游记标题"/>
-              <span class="total-words"><i>0</i>/18</span>
+  <div class="wrap">
+    <div class="main">
+      <div class="detail-container min-width">
+        <div class="article">
+          <h4 class="title">概览</h4>
+          <ul class="basic-info">
+            <li>时间：2016年5月23日</li>
+            <li>天数：7天</li>
+            <li>人均消费：3000-5000元</li>
+          </ul>
+          <div class="journey-box">
+            <div class="day">
+              <h4 class="day-tit">Day1</h4>
+              <div class="journey">
+                <h5 class="journey-tit">世界上最陡的街道-鲍德温街</h5>
+                <p class="article-txt">在英国，有许多小小的城镇，他们的名字在大多数游客听来都是那么陌生，可是好像又有那么一点点模糊的印象。他们大多只有三两条主街，一个算不上热闹的火车站，还有一些过得安逸又悠闲的本地人。如果你出生在中国的大城市里，这样子规模的小地方，在你眼中或许连城市都算不上。</p>
+                <p class="article-txt">可这样的小城小镇却是英国最常见的样子，南部的肯特郡，苏塞克斯郡，康沃尔地区；中部约克周边，湖区，还有科茨沃尔德地区；都有这样风景美丽，配置齐全的小城市。</p>
+                <p class="article-txt">
+                  他们是真正的英国生活的缩影，他们是这个国家最不容错过的地方。
+                </p>
+                <img class="article-img" src="../images/1.jpg">
+                <ul class="article-option">
+                  <li class="zan">238.93万</li>
+                  <li class="comment">2131</li>
+                </ul>
+              </div>
+              <div class="journey">
+                <h5 class="journey-tit">世界上最陡的街道-鲍德温街</h5>
+                <p class="article-txt">在英国，有许多小小的城镇，他们的名字在大多数游客听来都是那么陌生，可是好像又有那么一点点模糊的印象。他们大多只有三两条主街，一个算不上热闹的火车站，还有一些过得安逸又悠闲的本地人。如果你出生在中国的大城市里，这样子规模的小地方，在你眼中或许连城市都算不上。</p>
+                <p class="article-txt">可这样的小城小镇却是英国最常见的样子，南部的肯特郡，苏塞克斯郡，康沃尔地区；中部约克周边，湖区，还有科茨沃尔德地区；都有这样风景美丽，配置齐全的小城市。</p>
+                <p class="article-txt">
+                  他们是真正的英国生活的缩影，他们是这个国家最不容错过的地方。
+                </p>
+                <img class="article-img" src="../images/1.jpg">
+                <ul class="article-option">
+                  <li class="zan">238.93万</li>
+                  <li class="comment">2131</li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="clearfix">
-          <div class="tags-box">
-          </div>
-          <div class="add-tags">
-            <a href="#" class="btn-add-tags" data-value="">添加标签</a>
-            <span>添加标签可能被推荐到首页～</span> 
-          </div>
-        </div>
-        <p class="base-info-tips">填写基础信息,游记轻松变精华</p>
-        <div class="form-horizontal comps-form">
-          <div class="form-groups">
-            <label>出行时间</label>
-            <div class="form-controls">
-              <div class="input-group">
-                <i class="required-icon">*</i>
-                <input type="text" class="form-control datepicker-options required" placeholder="请选择" data-language='zh' name="startTime" data-error="出行时间" />
-                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            <div class="day">
+              <h4 class="day-tit">Day2</h4>
+              <div class="journey">
+                <h5 class="journey-tit">世界上最陡的街道-鲍德温街</h5>
+                <p class="article-txt">在英国，有许多小小的城镇，他们的名字在大多数游客听来都是那么陌生，可是好像又有那么一点点模糊的印象。他们大多只有三两条主街，一个算不上热闹的火车站，还有一些过得安逸又悠闲的本地人。如果你出生在中国的大城市里，这样子规模的小地方，在你眼中或许连城市都算不上。</p>
+                <p class="article-txt">可这样的小城小镇却是英国最常见的样子，南部的肯特郡，苏塞克斯郡，康沃尔地区；中部约克周边，湖区，还有科茨沃尔德地区；都有这样风景美丽，配置齐全的小城市。</p>
+                <p class="article-txt">
+                  他们是真正的英国生活的缩影，他们是这个国家最不容错过的地方。
+                </p>
+                <img class="article-img" src="../images/1.jpg">
+                <img class="article-img" src="../images/1.jpg">
+                <ul class="article-option">
+                  <li class="zan">238.93万</li>
+                  <li class="comment">2131</li>
+                </ul>
+              </div>
+              <div class="journey">
+                <h5 class="journey-tit">世界上最陡的街道-鲍德温街</h5>
+                <p class="article-txt">在英国，有许多小小的城镇，他们的名字在大多数游客听来都是那么陌生，可是好像又有那么一点点模糊的印象。他们大多只有三两条主街，一个算不上热闹的火车站，还有一些过得安逸又悠闲的本地人。如果你出生在中国的大城市里，这样子规模的小地方，在你眼中或许连城市都算不上。</p>
+                <p class="article-txt">可这样的小城小镇却是英国最常见的样子，南部的肯特郡，苏塞克斯郡，康沃尔地区；中部约克周边，湖区，还有科茨沃尔德地区；都有这样风景美丽，配置齐全的小城市。</p>
+                <p class="article-txt">
+                  他们是真正的英国生活的缩影，他们是这个国家最不容错过的地方。
+                </p>
+                <img class="article-img" src="../images/1.jpg">
+                <ul class="article-option">
+                  <li class="zan">238.93万</li>
+                  <li class="comment">2131</li>
+                </ul>
               </div>
             </div>
           </div>
-          <div class="form-groups">
-            <label>出发地</label>
-            <div class="form-controls">
-              <div class="input-group">
-                <i class="required-icon">*</i>
-                <input type="text" class="form-control required" placeholder="请选择" id="address" name="destination" data-error="出发地" />
-                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-              </div>
-            </div>
-          </div>
-          <div class="form-groups">
-            <label>人均费用</label>
-            <div class="form-controls">
-              <i class="required-icon">*</i>
-              <select class="form-control travel-cost required" placeholder="请选择" name="perCost" data-error="人均费用">
-                <option></option>
-                <option>500以下</option>
-                <option>500—999</option>
-                <option>1000—2999</option>
-                <option>3000—4999</option>
-                <option>5000—9999</option>
-                <option>10000—19999</option>
-                <option>2万—5万</option>
-                <option>5万以上</option>
-              </select>
-            </div>
+          <div class="options-box">
+            <div class="zan">324</div>
+            <ul class="collect-share">
+              <li class="collect">收藏</li>
+              <li class="share">分享</li>
+            </ul>
           </div>
         </div>
-      </div>
-      <a href="#" class="form-btn next-step">下一步</a>
-    </div>
-  </form>
-</div>
-
-<!-- 当前编辑页弹窗 -->
-<div class="customize-modal modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        <!-- <p>封面图片最小尺寸为990*330</p>
-        <p>请重新选择封面图片</p> -->
+        <div class="menu-box">
+          <h4 class="title">目录</h4>
+          <div class="chapter-box">
+            <ul class="menu">
+              <li>
+                <p class="item-tit">Day1</p>
+                <p class="item-txt active"><i>-----</i>世界上最陡的街道-鲍德温街</p>
+              </li>
+              <li>
+                <p class="item-tit">Day2</p>
+                <p class="item-txt"><i>-----</i>哈特兰奥克兰机场酒店</p>
+              </li>
+              <li>
+                <p class="item-tit">Day3</p>
+                <p class="item-txt"><i>-----</i>奥克兰基督城</p>
+              </li>
+              <li>
+                <p class="item-tit">Day4</p>
+                <p class="item-txt"><i>-----</i>黄眼企鹅观看攻略</p>
+              </li>
+              <li>
+                <p class="item-tit">Day5</p>
+                <p class="item-txt"><i>-----</i>吉百利巧克力工厂</p>
+              </li>
+            </ul>
+            <a href="#" class="chapter-icon"></a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- 顺序编辑器 -->
 <div class="drag-main">
   <a href="#">
     <span>顺序编辑器</span> 
@@ -142,65 +166,52 @@
       <div class="brick small">
         <img src="../images/drag_title.gif">
         <div class="hover-box">
-          <p>aa</p>
+          <div class="details-con">
+            <p>aa</p>
+          </div>
+        </div>
+      </div>
+      <div class="brick small">
+        <img src="../images/1.jpg">
+        <div class="hover-box">
+          <div class="details-con">
+            <p>aa</p>
+          </div>
+        </div>
+      </div>
+      <div class="brick small">
+        <img src="../images/drag_title.gif">
+        <div class="hover-box">
+          <div class="details-con">
+            <p>aa</p>
+          </div>
         </div>
       </div>
       <div class="brick small">
         <img src="../images/drag_text.gif">
         <div class="hover-box">
-          <p>aa</p>
+          <div class="details-con">
+            <p>aa</p>
+          </div>
         </div>
       </div>
       <div class="brick small">
         <img src="../images/drag_title.gif">
         <div class="hover-box">
-          <p>aa</p>
-        </div>
-      </div>
-      <div class="brick small">
-        <img src="../images/drag_text.gif">
-        <div class="hover-box">
-          <p>aa</p>
+          <div class="details-con">
+            <p>aa</p>
+          </div>
         </div>
       </div>
       <div class="brick small">
         <img src="../images/drag_title.gif">
         <div class="hover-box">
-          <p>aa</p>
-        </div>
-      </div>
-      <div class="brick small">
-        <img src="../images/drag_title.gif">
-        <div class="hover-box">
-          <p>aa</p>
+          <div class="details-con">
+            <p>aa</p>
+          </div>
         </div>
       </div>
     </div>
-    <!-- <div class="con-inner">
-      <div class="day-item">
-        <div class="item-panel">
-          <img src="../images/drag_title.gif">
-          <div class="hover-box">
-            <p>aa</p>
-          </div>
-        </div>
-        <div class="item-panel">
-          <img src="../images/drag_title.gif">
-          <div class="hover-box">
-            <p>aa</p>
-          </div>
-        </div>
-      </div>
-      <div class="day-item">
-        <img src="../images/drag_text.gif" data-details="">
-      </div>
-      <div class="day-item">
-        <img src="../images/drag_text.gif" data-details="">
-      </div>
-      <div class="day-item">
-        <img src="../images/drag_text.gif" data-details="">
-      </div>
-    </div> -->
   </div>
 </div>
 
@@ -208,7 +219,7 @@
 
 
 
-<script type="text/javascript" src="../scripts/jquery-1.11.1.min.js"></script>
+<script src="../public/components/jquery/dist/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script type="text/javascript" src="../scripts/bootstrap.min.js"></script>
 <script type="text/javascript" src="../scripts/config.js"></script>
@@ -224,9 +235,10 @@
 <script src="../public/components/select2/dist/js/select2.min.js"></script>
 <script src="../public/components/air-datepicker/dist/js/datepicker.min.js"></script>
 <script src="../public/components/air-datepicker/dist/js/i18n/datepicker.zh.js"></script>
+<script src="../public/components/gridly/javascripts/jquery.gridly.js"></script>
 <!-- <script type="text/javascript" src="http://www.my97.net/dp/My97DatePicker/WdatePicker.js"></script> -->
 <!-- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
-<script type="text/javascript" src="../gridly/javascripts/jquery.gridly.js"></script>
+<!-- <script type="text/javascript" src="../gridly/javascripts/jquery.gridly.js"></script> -->
 <script type="text/javascript" src="../scripts/drag.demo.js"></script>
 <!-- <script type="text/javascript" src="../scripts/editor.js"></script> -->
 </body>
