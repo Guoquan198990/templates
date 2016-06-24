@@ -322,6 +322,7 @@ $(document).ready(function() {
       recommentTags: recommentTags
     };
   })();
+  
 
   // 存储添加的标签
   var btnAddTagCur;
