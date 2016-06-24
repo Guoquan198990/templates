@@ -180,8 +180,17 @@ $(document).ready(function() {
     var addDayHtml = '<li class="day' + curDayNum + '">'
         + '<div class="day-tools">'
           + '<span class="day-num">DAY' + curDayNum + '</span>'
+          + '<div class="remove-tips-box">'
             + '<a href="#" class="glyphicon glyphicon-remove-sign"></a>'
+            + '<div class="tips">'
+              + '<div class="tips-inner">'
+                + '<p>是否删除该天的游记内容？</p>'
+                + '<a href="#">是</a>'
+                + '<a href="#">否</a>'
               + '</div>'
+            + '</div>'
+          + '</div>'
+        + '</div>'
         + '<div class="write-tools">'
           + '<a href="#" data-role="title" data-day=".day' + curDayNum + '">'
             + '<i></i>'
@@ -212,15 +221,17 @@ $(document).ready(function() {
     $('.cover-title .total-words i').text(coverConfig.title.length);
 
     // 输出标签
-    var tagdict = [];
-    var coverTagsHtml = '';
-    $.each(coverConfig.tagdict, function(i, val) {
-      coverTagsHtml += '<span data-code="' + val.code + '" data-tag="' + val.text + '">' + val.text + '</span>';
-      tagdict.push(val.text);
-    });
-    tagdict = tagdict.join(',');
-    $('.cover-tagdict .tags-box').html(coverTagsHtml);
-    $('.cover-tagdict .btn-add-tags').data('value', tagdict);
+    if(coverConfig.tagdict && coverConfig.tagdict.length) {
+      var tagdict = [];
+      var coverTagsHtml = '';
+      $.each(coverConfig.tagdict, function(i, val) {
+        coverTagsHtml += '<span data-code="' + val.code + '" data-tag="' + val.text + '">' + val.text + '</span>';
+        tagdict.push(val.text);
+      });
+      tagdict = tagdict.join(',');
+      $('.cover-tagdict .tags-box').html(coverTagsHtml);
+      $('.cover-tagdict .btn-add-tags').data('value', tagdict);
+    }
 
     // 出行时间
     $('.cover-startTime').val(coverConfig.startTime);
