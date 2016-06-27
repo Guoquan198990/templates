@@ -7108,6 +7108,7 @@ textarea.tag-input {
   border: 1px solid #1a8ced;
   -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0px 3px rgba(0, 0, 0, 0.15);
+  background: #fff;
 }
 .ui-widget-content .ui-state-focus {
   background: transparent;
