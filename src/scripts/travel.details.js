@@ -17,10 +17,7 @@ $(document).ready(function() {
 
   chapterBox.mCustomScrollbar({
     axis:"y",
-    autoHideScrollbar: true,
-    onScrollStart: function() {
-
-    }
+    autoHideScrollbar: true
   });
 
   // 存储目录锚点
@@ -57,7 +54,11 @@ $(document).ready(function() {
       chapterIconPos = chapterItem.eq(curIndex).offset().top - $('.menu').offset().top + ((chapterItem.eq(curIndex).height() - chapterIconH) / 2);
       chapterIcon.css('top', chapterIconPos);
 
-      var curChapterItem = chapterItem.filter('.active');
+      // 目录自定义滚动条联动
+      // var curChapterItem = chapterItem.filter('.active');
+      // var customizeScrollPos = curChapterItem.offset().top + chapterItem.height() - chapterBox.offset().top - chapterBox.height();
+      // console.log(curChapterItem.offset().top + chapterItem.height(), chapterBox.offset().top, chapterBox.height(), customizeScrollPos);
+      // customizeScrollPos = customizeScrollPos < 0 ? 0 : customizeScrollPos;
       // customizeScrollPos = 0;
       // if(curChapterItem.offset().top - chapterBox.offset().top > chapterBox.height()) {
       //   customizeScrollPos = curChapterItem.offset().top - chapterBox.offset().top - chapterBox.height() + 40;
@@ -65,12 +66,6 @@ $(document).ready(function() {
       // }
       // chapterBox.mCustomScrollbar('scrollTo',customizeScrollPos);
     }
-
-    // 目录滚动条
-    // var curChapterItem = chapterItem.filter('.active');
-    // var aa = curChapterItem.offset().top - chapterBox.offset().top - chapterBox.height() + curChapterItem.height();
-    // aa = aa < 0 ? 0 : aa;
-    // chapterBox.mCustomScrollbar('scrollTo',aa);
   });
 
   // 目录锚点
