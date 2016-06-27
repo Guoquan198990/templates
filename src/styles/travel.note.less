@@ -33,19 +33,24 @@
 .editor-panel {
   position: relative;
   line-height: 32px;
-
+  
   .show-data {
     position: relative;
+    margin: 0;
     span {
       font-weight: normal;
       font-size: 16px;
       line-height: 40px;
+      .clearfix;
     }
-    .address-span {
+
+    i {
+      font-style: normal;
+      float: left;
+    }
+    .address-span i {
       .text-overflow;
     }
-    margin: 0;
-    padding-right: 30px;
   }
   .form-control {
     padding: 6px 0;
@@ -62,6 +67,7 @@
     width: 100px;
     .text-overflow;
     display: none;
+    margin-right: 32px;
   }
   .form-control.comps-title {
     width: 100%;

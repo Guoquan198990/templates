@@ -8445,14 +8445,33 @@ textarea.tag-input {
 .editor-panel .show-data {
   position: relative;
   margin: 0;
-  padding-right: 30px;
 }
 .editor-panel .show-data span {
   font-weight: normal;
   font-size: 16px;
   line-height: 40px;
 }
-.editor-panel .show-data .address-span {
+.editor-panel .show-data span:before,
+.editor-panel .show-data span:after {
+  content: " ";
+  display: table;
+}
+.editor-panel .show-data span:after {
+  clear: both;
+}
+.editor-panel .show-data span:before,
+.editor-panel .show-data span:after {
+  content: " ";
+  display: table;
+}
+.editor-panel .show-data span:after {
+  clear: both;
+}
+.editor-panel .show-data i {
+  font-style: normal;
+  float: left;
+}
+.editor-panel .show-data .address-span i {
   max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -8480,6 +8499,7 @@ textarea.tag-input {
   white-space: nowrap;
   display: block;
   display: none;
+  margin-right: 32px;
 }
 .editor-panel .form-control.comps-title {
   width: 100%;

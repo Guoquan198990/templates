@@ -28,7 +28,7 @@ $(document).ready(function() {
       // 判断是否是表情包
       if(qqFaceEle.is('.facing')) return;
       targetVal = $(targetEle).val();
-      targetVal += '<a href="#" class="glyphicon glyphicon-pencil edit-btn" data-target="' + targetEle + '" data-role="' + targetRole + '" data-node="' + targetNode + '"></a>';
+      // targetVal += '<a href="#" class="glyphicon glyphicon-pencil edit-btn" data-target="' + targetEle + '" data-role="' + targetRole + '" data-node="' + targetNode + '"></a>';
       targetVal = targetVal.replace(/(\[([\s\S]+?)\])/g, function(s, $1, name) {
         var faceImg = '';
         $.each(TRAVEL_CONFIG.QQ_FACE, function(i, val) {
@@ -38,7 +38,7 @@ $(document).ready(function() {
         });
         return faceImg;
       });
-      targetParents.removeClass('editing').find('.show-data span').html(targetVal);
+      targetParents.removeClass('editing').find('.show-data span i').html(targetVal);
       curDtIndex = $(targetNode).find('dt').index($(this).parents('dt'));
       if(targetRole === 'title') {
         htmldir($(targetEle).val(), 'level2', targetNode, curDtIndex);
@@ -98,6 +98,7 @@ $(document).ready(function() {
                   + '<div class="mask-panel">'
                     + '<div class="show-data">'
                       + '<span class="paragraph-title">'
+                        + '<i></i>'
                         + '<a href="#" class="glyphicon glyphicon-pencil edit-btn" data-target=".item-title' + dayNum + '-' + titleNum + '" data-role="title" data-node="' + targetLi + '"></a>'
                       + '</span>'
                     + '</div>'
@@ -124,6 +125,7 @@ $(document).ready(function() {
               + '<div class="mask-panel">'
                 + '<div class="show-data">'
                   + '<span class="paragraph-main">'
+                    + '<i></i>'
                     + '<a href="#" class="glyphicon glyphicon-pencil edit-btn" data-target=".paragraph-con' + dayNum + '-' + paragraphConLen + '"></a>'
                   + '</span>'
                 + '</div>'
@@ -238,7 +240,7 @@ $(document).ready(function() {
 
     // 出发地
     $('.cover-destination input').val(coverConfig.destination);
-    $('.cover-destination .address-span').val(coverConfig.destination);
+    $('.cover-destination .address-span i').text(coverConfig.destination);
 
     // 人均费用
     $('.cover-percost').val(coverConfig.perCost);
