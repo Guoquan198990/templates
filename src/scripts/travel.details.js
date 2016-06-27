@@ -26,7 +26,7 @@ $(document).ready(function() {
   });
   $(window).scroll(function() {
     var sT = $('body').scrollTop();
-
+    customizeScrollPos = 0;
     // 固定目录
     if(sT >= menuBox.offset().top) {
       menuInner.removeClass(menuStatusClass).addClass('fixed');
@@ -55,16 +55,8 @@ $(document).ready(function() {
       chapterIcon.css('top', chapterIconPos);
 
       // 目录自定义滚动条联动
-      // var curChapterItem = chapterItem.filter('.active');
-      // var customizeScrollPos = curChapterItem.offset().top + chapterItem.height() - chapterBox.offset().top - chapterBox.height();
-      // console.log(curChapterItem.offset().top + chapterItem.height(), chapterBox.offset().top, chapterBox.height(), customizeScrollPos);
-      // customizeScrollPos = customizeScrollPos < 0 ? 0 : customizeScrollPos;
-      // customizeScrollPos = 0;
-      // if(curChapterItem.offset().top - chapterBox.offset().top > chapterBox.height()) {
-      //   customizeScrollPos = curChapterItem.offset().top - chapterBox.offset().top - chapterBox.height() + 40;
-      //   console.log(222);
-      // }
-      // chapterBox.mCustomScrollbar('scrollTo',customizeScrollPos);
+      var chapterActive = chapterItem.filter('.active');
+      chapterBox.mCustomScrollbar('scrollTo',chapterActive);
     }
   });
 
