@@ -1,4 +1,19 @@
+// 该文件主要完成的内容
+/*
+  1. 标题计数
+  2. 添加标签弹窗
+  3. 自定义标签
+  4. 选择标签个数限制且每个自定义标签的字数不能超过7个字
+  5. 完成标签的选择
+  6. 出行时间选择器
+  7. 出发地的自动补全功能（ajax 代码已写出，解除注释就好，把测试数据的代码删除即可）
+  8. 表单的验证
+  9. 表单错误提示的弹窗
+  10. 点击下一步，表单数据的存储，目前是使用 sessionStorage 来进行操作，也可以写在 url 中或者使用 localStorage 来存储
+*/
+
 $(document).ready(function() {
+  // 文字计数
   $('body').on('keyup', '.note-title', function() {
     var strLen = $(this).val().length;
     strLen = strLen > 18 ? 18 : strLen;
@@ -271,6 +286,7 @@ $(document).ready(function() {
       ( ! hasClass(cls, el)) ? addClass(cls, el) : removeClass(cls, el);
     }
 
+    // 判断选择的标签的个数
     function judgeTagsNum() {
       if($('.tag-padding-btn').length >= 4) {
         $('.customize-checkbox input').not('.checked').prop('disabled', true);
@@ -283,6 +299,7 @@ $(document).ready(function() {
       $('.customize-checkbox input').prop('disabled', false);
     }
 
+    // 选择推荐标签并显示
     function recommentTags() {
       $('.customize-checkbox input').change(function() {
         var _curTarget = $(this);
@@ -489,32 +506,6 @@ $(document).ready(function() {
   $.each(setOffArea.result.result, function(i, val) {
     availableTags.push(val.city + val.distinct + val.name);
   });
-  // var availableTags = [
-  //   "ActionScript",
-  //   "AppleScript",
-  //   "Asp",
-  //   "BASIC",
-  //   'AAA',
-  //   'abs',
-  //   "C",
-  //   "C++",
-  //   "Clojure",
-  //   "COBOL",
-  //   "ColdFusion",
-  //   "Erlang",
-  //   "Fortran",
-  //   "Groovy",
-  //   "Haskell",
-  //   "Java",
-  //   "JavaScript",
-  //   "Lisp",
-  //   "Perl",
-  //   "PHP",
-  //   "Python",
-  //   "Ruby",
-  //   "Scala",
-  //   "Scheme"
-  // ];
 
   // 出发地
   var cache = {};

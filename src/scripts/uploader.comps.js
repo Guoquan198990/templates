@@ -1,3 +1,13 @@
+// 该文件主要完成的内容
+/*
+  1. 上传图片
+  2. 对图片的大小进行限制
+  3. 上传进度条
+  4. 上传完毕
+  5. 上传失败
+  6. 剪裁图片
+*/
+
 $('body').on('click', '.close-modal', function(e) {
   e.preventDefault();
   $('.customize-modal').modal('hide');
@@ -124,6 +134,7 @@ function tooltips() {
 //   }
 // }
 
+// 剪裁图片弹窗
 function cropImage(src) {
   var cropHtml = '<div class="avatar-body">'
       + '<div class="avatar-wrapper">'

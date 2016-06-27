@@ -1,4 +1,17 @@
+// 该文件主要完成的内容
+/*
+  1. 获取封面的表单提交的数据
+  2. 编辑按钮的操作
+  3. 表单元素失去焦点的操作
+  4. QQ表情的选择以及将QQ表情转化为图片
+  5. 添加段落标题、添加文字、添加图片
+  6. 添加一天
+  7. 页面初始化时，渲染封面数据
+  8. 根据写游记的内容，右侧生成对应的目录
+*/
+
 $(document).ready(function() {
+  // 获取封面的表单提交的数据
   var jsonData = JSON.parse(sessionStorage.getItem("jsonData"));
   pageRender();
 
@@ -24,6 +37,8 @@ $(document).ready(function() {
     if(qqFaceEle.length) {
       qqFaceEle.addClass('facing');
     }
+
+    // 表单元素失去焦点的操作
     $(targetEle).blur(function() {
       // 判断是否是表情包
       if(qqFaceEle.is('.facing')) return;
@@ -46,37 +61,7 @@ $(document).ready(function() {
     });
   });
 
-  // 生成目录
-  function htmldir(titleCon, type, targetEle, curDtIndex) {
-    var chapterHtml = '';
-    $('.item-txt, .item-tit').removeClass('active');
-    if($('.chapter-box').find(targetEle).children().length > curDtIndex + 1) {
-      $('.chapter-box').find(targetEle).children().eq(curDtIndex + 1).html('<p class="item-txt active"><i>-----</i>' + titleCon + '</p>');
-      return;
-    }
-    if(type === 'level1') {
-      chapterHtml = '<li class="' + titleCon.toLowerCase() + '"><p class="item-tit active">' + titleCon + '</p></li>';
-    } else if(type === 'level2') {
-      chapterHtml = '<p class="item-txt active"><i>-----</i>' + titleCon + '</p>';
-    }
-    $('.chapter-box').find(targetEle).append(chapterHtml);
-  }
-
-  // 获取qq表情包
-  var qqFacePackage = getFaceHtml();
-  function getFaceHtml() {
-    var html = '';
-    var qqFaceItem = '';
-    $.each(TRAVEL_CONFIG.QQ_FACE, function(i, val) {
-      qqFaceItem += '<li>'
-        + '<a href="javascript:void(0);" title="' + val.name + '">'
-          + '<img src="' + val.url + '">'
-        + '</a>'
-      + '</li>'; 
-    });
-    html = '<ul>' + qqFaceItem + '</ul>';
-    return html;
-  }
+  
 
   // 添加段落标题、添加文字、添加图片
   $('body').on('click', '.write-tools a', function(e) {
@@ -160,13 +145,14 @@ $(document).ready(function() {
     $($(this).data('target')).blur();
   });
 
+  // 获取qq表情包
+  var qqFacePackage = getFaceHtml();
   // 表情包
   $('body').on('click', '.face-icon', function(e) {
     e.preventDefault();
     e.stopPropagation();
     $(this).toggleClass('on').closest('.form-control').focus();
   });
-
   // 选择表情
   $('body').on('click', '.js_face a', function() {
     var targetTextarea = $(this).parents('.qq-face').data('target');
@@ -244,5 +230,36 @@ $(document).ready(function() {
 
     // 人均费用
     $('.cover-percost').val(coverConfig.perCost);
+  }
+
+  // 生成目录
+  function htmldir(titleCon, type, targetEle, curDtIndex) {
+    var chapterHtml = '';
+    $('.item-txt, .item-tit').removeClass('active');
+    if($('.chapter-box').find(targetEle).children().length > curDtIndex + 1) {
+      $('.chapter-box').find(targetEle).children().eq(curDtIndex + 1).html('<p class="item-txt active"><i>-----</i>' + titleCon + '</p>');
+      return;
+    }
+    if(type === 'level1') {
+      chapterHtml = '<li class="' + titleCon.toLowerCase() + '"><p class="item-tit active">' + titleCon + '</p></li>';
+    } else if(type === 'level2') {
+      chapterHtml = '<p class="item-txt active"><i>-----</i>' + titleCon + '</p>';
+    }
+    $('.chapter-box').find(targetEle).append(chapterHtml);
+  }
+
+  // 获取qq表情包
+  function getFaceHtml() {
+    var html = '';
+    var qqFaceItem = '';
+    $.each(TRAVEL_CONFIG.QQ_FACE, function(i, val) {
+      qqFaceItem += '<li>'
+        + '<a href="javascript:void(0);" title="' + val.name + '">'
+          + '<img src="' + val.url + '">'
+        + '</a>'
+      + '</li>'; 
+    });
+    html = '<ul>' + qqFaceItem + '</ul>';
+    return html;
   }
 });

@@ -1,3 +1,13 @@
+// 该文件主要完成的内容
+/*
+  1. 目录的锚点
+  2. 目录的自定义滚动条
+  3. 滚动页面时，目录进行联动（定位当前的目录节点）
+  4. 鼠标在目录容器内滚动时，并不触发外围的滚动条的滚动
+  5. 目录的固定以及滑至文章末尾时，目录不在固定
+  6. 文章中的图片延迟加载
+  7. 时间的格式转化
+*/
 $(document).ready(function() {
   var menuBox = $('.menu-box');
   var menuInner = $('.menu-inner');
@@ -15,6 +25,7 @@ $(document).ready(function() {
 
   menuBox.height(articleHeight);
 
+  // 目录自定义滚动条
   chapterBox.mCustomScrollbar({
     axis:"y",
     autoHideScrollbar: true
@@ -24,6 +35,7 @@ $(document).ready(function() {
   $.each($('.J-detail-list'), function() {
     anchorPos.push($(this).offset().top);
   });
+
   $(window).scroll(function() {
     var sT = $('body').scrollTop();
     customizeScrollPos = 0;
