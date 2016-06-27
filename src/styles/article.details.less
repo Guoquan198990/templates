@@ -523,8 +523,14 @@
               padding: 24px 0 8px;
               font-size: 16px; }
             .wrap .detail-container .article .journey-box .day .journey .article-img {
-              width: 100%;
-              margin: 16px 0; }
+              max-width: 100%;
+              margin: 16px 0; 
+              opacity: 0;
+              transition: opacity ease .3s;
+              &.fade {
+                opacity: 1;
+              }
+            }
               .wrap .detail-container .article .journey-box .day .journey .article-img:last-child {
                 margin: 0; }
             .wrap .detail-container .article .journey-box .day .journey .article-option {

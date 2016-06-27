@@ -7108,6 +7108,7 @@ textarea.tag-input {
   border: 1px solid #1a8ced;
   -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0px 3px rgba(0, 0, 0, 0.15);
+  background: #fff;
 }
 .ui-widget-content .ui-state-focus {
   background: transparent;
@@ -8007,8 +8008,13 @@ textarea.tag-input {
   font-size: 16px;
 }
 .wrap .detail-container .article .journey-box .day .journey .article-img {
-  width: 100%;
+  max-width: 100%;
   margin: 16px 0;
+  opacity: 0;
+  transition: opacity ease .3s;
+}
+.wrap .detail-container .article .journey-box .day .journey .article-img.fade {
+  opacity: 1;
 }
 .wrap .detail-container .article .journey-box .day .journey .article-img:last-child {
   margin: 0;

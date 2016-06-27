@@ -1,15 +1,11 @@
 $(document).ready(function() {
-  // 游记标题字数计算
-  // $('.note-title').keyup(function() {
-  //   debugger
-  //   $(this).next('.total-words').find('i').html($(this).val().length);
-  // });
   $('body').on('keyup', '.note-title', function() {
-    $(this).next('.total-words').find('i').html($(this).val().length);
+    var strLen = $(this).val().length;
+    strLen = strLen > 18 ? 18 : strLen;
+    $(this).next('.total-words').find('i').html(strLen);
   });
 
   // 添加标签
-  // var tagsAddTotal = [];
   var Tags = (function() {
 
     // Wrapper and Input vars

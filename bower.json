@@ -8,7 +8,10 @@
     "select2": "^4.0.3",
     "air-datepicker": "^2.0.2",
     "gridly": "^1.2.9",
-    "malihu-custom-scrollbar-plugin": "^3.1.4"
+    "malihu-custom-scrollbar-plugin": "^3.1.4",
+    "jquery-ui": "^1.11.4",
+    "blueimp-file-upload": "^9.12.5",
+    "cropper": "^2.3.2"
   },
   "devDependencies": {}
 }

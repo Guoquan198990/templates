@@ -46,7 +46,8 @@ function uploadFile(fn) {
       + '</div>';
 
   $('.input-upload input').fileupload({
-    url: 'http://10.168.99.140:8080/upload/uploadpic.do',
+    // url: 'http://10.168.99.140:8080/upload/uploadpic.do',
+    url: '/',
     sequentialUploads: true,
     xhrFields: {
         withCredentials: true
@@ -86,10 +87,14 @@ function uploadFile(fn) {
           uploadStatus.abort();
           return false;
         }
+        // setTimeout(function() {
+        //   cropImage(image.src);
+        //   $('.input-upload input').val('');
+        // }, 1000);
       }
     }
   }).bind('fileuploadstart', function(e, data) {
-      
+    
   }).bind('fileuploadprogress', function(e, data) {
     modalShow(uploadProgress, 'upload-progress-modal');
     var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -97,7 +102,7 @@ function uploadFile(fn) {
   }).bind('fileuploaddone', function(e, data) {
     $('.upload-progress-modal').modal('hide');
     setTimeout(function() {
-      cropImage(image.src);
+      cropImage(data.result.file_path);
       $('.input-upload input').val('');
     }, 1000);
   }).bind('fileuploadfail', function(e, data) {
