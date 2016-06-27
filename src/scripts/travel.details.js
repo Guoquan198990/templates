@@ -110,4 +110,35 @@ $(document).ready(function() {
     }  
     return this;  
   }
+
+  // 图片延迟加载
+  var imgLazyLoadTimer = null;
+  var scrollTimer = null;
+  function imgLazyLoad() {
+    $(window).on('scroll.img', function() {
+      var $img = $('img[data-src]');
+      if(imgLazyLoadTimer) {
+        clearTimeout(imgLazyLoadTimer);
+      }
+      imgLazyLoadTimer = setTimeout(function() {
+        $img.each(function(i, el) {
+          var dataSrc = $(this).data('src');
+          if(dataSrc && !el.src) {
+            var top = $(this).offset().top;
+            var wT = $(window).scrollTop();
+            var wH = $(window).height();
+            if(top < (wT + wH) && (top > 0)) {
+              el.src = dataSrc;
+              $(this).addClass('fade');
+            }
+          }
+          if(el.src && dataSrc && (el.src != dataSrc)) {
+            el.src = dataSrc;
+            $(this).addClass('fade');
+          }
+        });
+      }, 200);
+    }).scroll();  
+  }
+  imgLazyLoad();
 });
