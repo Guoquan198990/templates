@@ -1,0 +1,256 @@
+
+// ==================== reset ====================
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, em, button {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font: 12px/1.5 'microsoft yahei', "黑体", arial, Simsun, sans-serif;
+    color: #333;
+    background-color: #fff;
+}
+img, fieldset {
+    border: none;
+    vertical-align: middle;
+}
+input, textarea {
+    font-size: 12px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a {
+    color: #3983e5;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+a, button, input[type="text"] {
+    &:focus {
+        outline: none;
+    }
+}
+h1, h2, h3, h4, h5 {
+    font-family: 'microsoft yahei', "黑体", arial, Simsun, sans-serif;
+    font-weight: normal;
+}
+ul, ol {
+    list-style: none;
+}
+input[type="button"], input[type="submit"] {
+    -webkit-appearance: none;
+}
+input[type="text"] {
+    border-radius: 0;
+}
+.hide {
+    display: none;
+}
+
+em{ font-style: normal}
+// ==================== end reset ====================
+
+// ==================== global ====================
+.clearfixed:before, .clearfixed:after {
+    content: "";
+    display: table;
+}
+.clearfixed:after {
+    clear: both;
+}
+
+.fl{float: left}
+.fr{float: right}
+.clear{clear: both;}
+.overflow{overflow: hidden}
+.divin{display: inline;}
+.p-re{position: relative;}
+
+.container {
+    max-width: 1170px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.loading-wrap{
+    width: 100%;
+    height: 100%;
+    background-color: @white;
+    text-align: center;
+    vertical-align: top;
+    position: absolute;
+    left: 0;
+    top: 0;
+    
+    .loader {
+        position: absolute;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+    }
+}
+
+svg path,
+svg rect{
+    fill: #FF6700;
+}
+
+// ==================== end global ====================
+
+// ==================== varible ====================
+
+@black: #333;
+@blackLight: @black * 3;
+@white: #fff;
+@link: #4285f4;
+@bor: #ccc;
+@tdBg: #eee;
+
+
+// ==================== end varible ====================
+
+// ==================== content ====================
+
+.customer-details {
+    padding: 30px 0;
+    .item-header {
+        margin: 30px 0 20px;
+    }
+    .title-item, .title-separator {
+        font-size: 16px;
+        line-height: 24px;
+        color: @black;
+    }
+    .title-item {
+        padding-right: 20px;
+        position: relative;
+        &:before, &:after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 8px;
+            border: 6px solid transparent;
+            border-top-color: #ccc;
+        }
+        &:after {
+            border-top-color: #fff;
+            top: 7px;
+        }
+        &:hover {
+            color: @link;
+        }
+        &.active {
+            &:before, &:after {
+                border-bottom-color: #ccc;
+                border-top-color: transparent;
+                top: 2px;
+            }
+            &:after {
+                border-bottom-color: #fff;
+                top: 3px;
+            }
+        }
+    }
+    .item-content {
+        max-width: 100%;
+        overflow-x: auto;
+        display: none;
+        position: relative;
+        &.iframe-wrap {
+            height: 300px;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    }
+
+    table {
+        // table-layout: fixed;
+        width: 100%;
+        text-align: center;
+    }
+    td {
+        border: 1px solid @bor;
+        line-height: 20px;
+        min-width: 100px;
+        padding: 10px;
+        &.bg-td {
+            background-color: @tdBg;
+        }
+    }
+    
+    .tab-panel {
+        border-bottom: 1px solid @bor;
+        .inner {
+            margin-bottom: -1px;
+        }
+        a {
+            float: left;
+            line-height: 30px;
+            font-size: 14px;
+            color: @black;
+            padding: 0 10px;
+            border: 1px solid transparent;
+
+            &.active {
+                border-color: @bor;
+                border-bottom-color: @white;
+                margin-bottom: -1px;
+                color: @link;
+            }
+            &:hover {
+                background-color: #eee;
+                border-bottom-color: @bor;
+                color: @black;
+            }
+        }
+    }
+    .tab-content {
+        display: block;
+        .item {
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+    }
+    .title-separator {
+        border-top: 1px solid @bor;
+        padding: 10px 0; 
+        margin-top: 40px;
+        font-weight: bold;
+        color: @blackLight;
+    }
+}
+
+
+
+// ==================== end content ====================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

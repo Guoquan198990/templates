@@ -1,0 +1,250 @@
+html,
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+em,
+button {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font: 12px/1.5 'microsoft yahei', "黑体", arial, Simsun, sans-serif;
+  color: #333;
+  background-color: #fff;
+}
+img,
+fieldset {
+  border: none;
+  vertical-align: middle;
+}
+input,
+textarea {
+  font-size: 12px;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  color: #3983e5;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:focus,
+button:focus,
+input[type="text"]:focus {
+  outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'microsoft yahei', "黑体", arial, Simsun, sans-serif;
+  font-weight: normal;
+}
+ul,
+ol {
+  list-style: none;
+}
+input[type="button"],
+input[type="submit"] {
+  -webkit-appearance: none;
+}
+input[type="text"] {
+  border-radius: 0;
+}
+.hide {
+  display: none;
+}
+em {
+  font-style: normal;
+}
+.clearfixed:before,
+.clearfixed:after {
+  content: "";
+  display: table;
+}
+.clearfixed:after {
+  clear: both;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clear {
+  clear: both;
+}
+.overflow {
+  overflow: hidden;
+}
+.divin {
+  display: inline;
+}
+.p-re {
+  position: relative;
+}
+.container {
+  max-width: 1170px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.loading-wrap {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  text-align: center;
+  vertical-align: top;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.loading-wrap .loader {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+svg path,
+svg rect {
+  fill: #FF6700;
+}
+.customer-details {
+  padding: 30px 0;
+}
+.customer-details .item-header {
+  margin: 30px 0 20px;
+}
+.customer-details .title-item,
+.customer-details .title-separator {
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+}
+.customer-details .title-item {
+  padding-right: 20px;
+  position: relative;
+}
+.customer-details .title-item:before,
+.customer-details .title-item:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 8px;
+  border: 6px solid transparent;
+  border-top-color: #ccc;
+}
+.customer-details .title-item:after {
+  border-top-color: #fff;
+  top: 7px;
+}
+.customer-details .title-item:hover {
+  color: #4285f4;
+}
+.customer-details .title-item.active:before,
+.customer-details .title-item.active:after {
+  border-bottom-color: #ccc;
+  border-top-color: transparent;
+  top: 2px;
+}
+.customer-details .title-item.active:after {
+  border-bottom-color: #fff;
+  top: 3px;
+}
+.customer-details .item-content {
+  max-width: 100%;
+  overflow-x: auto;
+  display: none;
+  position: relative;
+}
+.customer-details .item-content.iframe-wrap {
+  height: 300px;
+  overflow: hidden;
+}
+.customer-details .item-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.customer-details table {
+  width: 100%;
+  text-align: center;
+}
+.customer-details td {
+  border: 1px solid #ccc;
+  line-height: 20px;
+  min-width: 100px;
+  padding: 10px;
+}
+.customer-details td.bg-td {
+  background-color: #eee;
+}
+.customer-details .tab-panel {
+  border-bottom: 1px solid #ccc;
+}
+.customer-details .tab-panel .inner {
+  margin-bottom: -1px;
+}
+.customer-details .tab-panel a {
+  float: left;
+  line-height: 30px;
+  font-size: 14px;
+  color: #333;
+  padding: 0 10px;
+  border: 1px solid transparent;
+}
+.customer-details .tab-panel a.active {
+  border-color: #ccc;
+  border-bottom-color: #fff;
+  margin-bottom: -1px;
+  color: #4285f4;
+}
+.customer-details .tab-panel a:hover {
+  background-color: #eee;
+  border-bottom-color: #ccc;
+  color: #333;
+}
+.customer-details .tab-content {
+  display: block;
+}
+.customer-details .tab-content .item {
+  display: none;
+}
+.customer-details .tab-content .item.active {
+  display: block;
+}
+.customer-details .title-separator {
+  border-top: 1px solid #ccc;
+  padding: 10px 0;
+  margin-top: 40px;
+  font-weight: bold;
+  color: #999999;
+}
