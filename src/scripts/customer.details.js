@@ -1,5 +1,7 @@
 function iframeLoaded(obj) {
-    $(obj).prev().fadeOut();
+    var iframeH = $(obj).contents().find('body').height();
+    iframeH = iframeH > 300 ? 300 : iframeH;
+    $(obj).prev().fadeOut().parent().css('height', iframeH);
 }
 
 // table 隔列变色

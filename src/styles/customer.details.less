@@ -135,12 +135,16 @@ svg rect{
     }
 
     .item-content {
-        max-width: 100%;
-        overflow-x: auto;
         position: relative;
         padding: 10px;
         margin: 20px 0 10px;
         background-color: @white;
+        .inner {
+            max-width: 100%;
+            overflow: auto;
+            border-right: 1px solid @bor;
+            float: left;
+        }
         &.iframe-wrap {
             height: 300px;
             overflow: hidden;
@@ -199,6 +203,7 @@ svg rect{
     }
     td {
         border: 1px solid @bor;
+        border-right: none;
         line-height: 20px;
         min-width: 100px;
         padding: 5px;

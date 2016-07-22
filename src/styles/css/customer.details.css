@@ -157,12 +157,16 @@ svg rect {
   font-weight: bold;
 }
 .customer-details .item-content {
-  max-width: 100%;
-  overflow-x: auto;
   position: relative;
   padding: 10px;
   margin: 20px 0 10px;
   background-color: #fff;
+}
+.customer-details .item-content .inner {
+  max-width: 100%;
+  overflow: auto;
+  border-right: 1px solid #ccc;
+  float: left;
 }
 .customer-details .item-content.iframe-wrap {
   height: 300px;
@@ -215,6 +219,7 @@ svg rect {
 }
 .customer-details td {
   border: 1px solid #ccc;
+  border-right: none;
   line-height: 20px;
   min-width: 100px;
   padding: 5px;
