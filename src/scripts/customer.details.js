@@ -1,5 +1,11 @@
 function iframeLoaded(obj) {
-    var iframeH = $(obj).contents().find('body').height();
+    var iframeH = 300;
+    try {
+        iframeH = $(obj).contents().find('body').height();
+    } catch(err) {
+        iframeH = 300;
+    }
+    // var iframeH = $(obj).contents().find('body').height();
     iframeH = iframeH > 300 ? 300 : iframeH;
     $(obj).prev().fadeOut().parent().css('height', iframeH);
 }
